@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(usersCollection, JSON.stringify(admin));
     }
 
-       // User verification
+    // User verification
     let btnSignUp = document.querySelector('.btn-sign-up');
     btnSignUp.addEventListener('click', addUser);
 
@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function addUser() {
-    let usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection)) ;
+    let usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection));
     let emailError = document.querySelector('.email-error');
+
 
     let newUser = {
         fname: document.querySelector('.input-fname-sign-up').value,
@@ -34,11 +35,13 @@ function addUser() {
         pass: document.querySelector('.input-pass-sign-up').value,
         isAdmin: false
     };
-    if(usersArrayLocalStorage.find(item => item.email === newUser.email)){
+    if (usersArrayLocalStorage.find(item => item.email === newUser.email)) {
         emailError.classList.remove("d-none");
+        document.querySelector('.success-sign-up').classList.add("d-none");
     } else {
         usersArrayLocalStorage.push(newUser);
         localStorage.setItem(usersCollection, JSON.stringify(usersArrayLocalStorage));
+        document.querySelector('.success-sign-up').classList.remove("d-none");
     }
 }
 
@@ -50,13 +53,13 @@ function verifySignIn() {
 
     let usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection));
     const user = usersArrayLocalStorage.find(item => item.email === email && item.pass === pass);
-        if (user) {
-            localStorage.setItem(loggedAsCollection, JSON.stringify(user));
-            document.location.href = user.isAdmin ? 'AdminPanel.html' : 'UserPanel.html';
-        } else {
-            inputErrors.classList.remove("d-none");
-        }
+    if (user) {
+        localStorage.setItem(loggedAsCollection, JSON.stringify(user));
+        document.location.href = user.isAdmin ? 'AdminPanel.html' : 'UserPanel.html';
+    } else {
+        inputErrors.classList.remove("d-none");
     }
+}
 
 
 
