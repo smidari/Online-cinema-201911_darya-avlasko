@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function addUser() {
     let usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection));
-    let emailError = document.querySelector('.email-error');
-
 
     let newUser = {
         fname: document.querySelector('.input-fname-sign-up').value,
@@ -36,12 +34,13 @@ function addUser() {
         isAdmin: false
     };
     if (usersArrayLocalStorage.find(item => item.email === newUser.email)) {
-        emailError.classList.remove("d-none");
+        document.querySelector('.email-error').classList.remove("d-none");
         document.querySelector('.success-sign-up').classList.add("d-none");
     } else {
         usersArrayLocalStorage.push(newUser);
         localStorage.setItem(usersCollection, JSON.stringify(usersArrayLocalStorage));
         document.querySelector('.success-sign-up').classList.remove("d-none");
+        document.querySelector('.email-error').classList.add("d-none");
     }
 }
 

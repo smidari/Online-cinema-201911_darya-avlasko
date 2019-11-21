@@ -1,6 +1,8 @@
 const loggedAsCollection = 'loggedAs';
 const usersCollection = 'usersArray';
 
+const usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection));
+
 document.addEventListener('DOMContentLoaded', () => {
 
     //Сheck whether registered user is admin
@@ -14,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.location.href = 'StartPage.html';
     });
 
-    const usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection));
+
     fillTableUsers(usersArrayLocalStorage);
 });
 
@@ -22,11 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function fillTableUsers(user) {
     let html = '';
 
-    user.forEach((item) => {
-        html += `<tr><td>${item.fname ? item.fname : '-'}</td><td>${item.lname ? item.lname : '-'}</td>
-     <td>${item.email ? item.email : '-'}</td><td>${'<button class="remove-user">&times;</button>'}</td></tr>`
+    user.forEach((item, index) => {
+        html += `<tr><td>${index + 1}</td><td>${item.fname ? item.fname : '-'}</td><td>${item.lname ? item.lname : '-'}</td>
+        <td>${item.email ? item.email : '-'}</td><td><button class="remove-user" onclick="deleteRow(${index})">&times;</button></td></tr>`
     });
     document.querySelector('.body-table-users').innerHTML = html;
 }
 
-
+function deleteRow(index) {
+    usersArrayLocalStorage.splice(+index, 1);
+    localStorage.removeItem(usersCollection);
+    localStorage.setItem(usersCollection, JSON.stringify(usersArrayLocalStorage));
+    fillTableUsers(usersArrayLocalStorage);
+}
