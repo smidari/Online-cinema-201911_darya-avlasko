@@ -1,18 +1,18 @@
-const loggedAsCollection = 'loggedAs';
-const usersCollection = 'usersArray';
+const USERS_COLLECTION = 'usersArray';
+const LOGGED_COLLECTION = 'loggedAs';
 
-const usersArrayLocalStorage = JSON.parse(localStorage.getItem(usersCollection));
+const usersArrayLocalStorage = JSON.parse(localStorage.getItem(USERS_COLLECTION));
 
 document.addEventListener('DOMContentLoaded', () => {
 
     //Сheck whether registered user is admin
-    const loggedUser = JSON.parse(localStorage.getItem(loggedAsCollection));
+    const loggedUser = JSON.parse(localStorage.getItem(LOGGED_COLLECTION));
     if (!loggedUser || !loggedUser.isAdmin) {
         document.location.href = 'StartPage.html';
     }
     //Button to exit the admin panel and delete registration data from localStorage
     document.querySelector('.btn-log-out').addEventListener('click', () => {
-        localStorage.removeItem(loggedAsCollection);
+        localStorage.removeItem(LOGGED_COLLECTION);
         document.location.href = 'StartPage.html';
     });
 
@@ -33,7 +33,7 @@ function fillTableUsers(user) {
 
 function deleteRow(index) {
     usersArrayLocalStorage.splice(+index, 1);
-    localStorage.removeItem(usersCollection);
-    localStorage.setItem(usersCollection, JSON.stringify(usersArrayLocalStorage));
+    localStorage.removeItem(USERS_COLLECTION);
+    localStorage.setItem(USERS_COLLECTION, JSON.stringify(usersArrayLocalStorage));
     fillTableUsers(usersArrayLocalStorage);
 }
