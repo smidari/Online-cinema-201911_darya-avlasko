@@ -20,124 +20,97 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous" defer></script>
+    <script src="../js/const.js"></script>
     <script src="../js/user-panel.js"></script>
-    <link href="../css/user-page.css" rel="stylesheet">
+
 
     <title>Online cinema</title>
 </head>
 <body>
 <header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="logo col-lg-2">
-                <a href="#">Online cinema</a>
-            </div>
-            <div class="col-lg-7">
-                <nav>
-                    <ul class="menu ">
-                        <li class="menu__item"><a data-toggle="tab" href=".my-acount">My cinema</a>
-                        </li>
-                        <li class="menu__item"><a data-toggle="tab" href=".all-films">Films</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-3 d-flex justify-content-end">
-                <form>
-                    <button type="button" class="btn btn-log-out ">
-                        Log out
-                    </button>
-                </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--Logo -->
+        <a class="navbar-brand text-info" href="#">Online cinema</a>
+        <!--Tabs menu-->
+        <div class="collapse navbar-collapse">
+            <div class="nav nav-tabs alert-info" id="nav-tab" role="tablist">
+                <a class="alert-link nav-item nav-link active" id="nav-my-acount-tab" data-toggle="tab"
+                   href="#nav-my-acount" role="tab" aria-controls="nav-my-acount" aria-selected="true">My acount</a>
+                <a class="nav-item nav-link" id="nav-tickets-tab" data-toggle="tab" href="#nav-tickets" role="tab"
+                   aria-controls="nav-tickets" aria-selected="false">My tickets</a>
+                <a class="nav-item nav-link" id="nav-list-films-for-users-tab" data-toggle="tab"
+                   href="#nav-list-films-for-users" role="tab" aria-controls="nav-list-films-for-users"
+                   aria-selected="false">List films</a>
             </div>
         </div>
-    </div>
+        <a class="navbar-brand text-info btn-log-out" href="#">Log out</a>
+    </nav>
 </header>
 
 
-<!--Tabs content-->
-<div class="tab-content">
-    <!--Content  tab List films-->
-    <div class="tab-pane fade all-films">
-        <div class="container pt-1">
-            <!--Table for viewing a list of films -->
-            <div class="container mt-3">
-                <table class="table table-dark">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Picture</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Ticket price</th>
-                        <th scope="col">Start date</th>
-                        <th scope="col">End date</th>
-                        <th scope="col">Tags</th>
-                        <th scope="col">Reserve</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><img src="..." alt="film"></td>
-                        <td>Otto</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>&#9745;</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td><img src="..." alt="film"></td>
-                        <td>Thornton</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>&#9745;</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td><img src="..." alt="film"></td>
-                        <td>the Bird</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>&#9745;</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-my-acount" role="tabpanel" aria-labelledby="nav-my-acount-tab">
+
+        <div class="container mt-5">
+            <form>
+                <p><label for="my-account-first-name">First name:</label>
+                    <input maxlength="25" name="login" id="my-account-first-name"></p>
+                <p><label for="my-account-last-name">Last name:</label>
+                    <input type="text" maxlength="25" name="password" id="my-account-last-name"></p>
+            </form>
+
         </div>
     </div>
-    <div class="tab-pane fade my-acount">
-        <div class="form-group row ">
-            <div class="col"></div>
-            <label for="fname-my-acount" class="col-sm-2 col-form-label">First name</label>
-            <input type="text" readonly class="form-control-plaintext" id="fname-my-acount" value="aaa">
-        </div>
-        <div class="col">
-            <label for="lname-my-acount" class="col-sm-2 col-form-label">Last name</label>
-            <input type="text" readonly class="form-control-plaintext" id="lname-my-acount" value="">
-        </div>
-        <div class="col">
-            <label for="username-my-acount" class="col-sm-2 col-form-label">Username</label>
 
-            <input type="text" readonly class="form-control-plaintext" id="username-my-acount" value="">
+    <div class="tab-pane fade" id="nav-tickets" role="tabpanel" aria-labelledby="nav-tickets-tab">
+
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Ticket price</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">Tags</th>
+                    <th scope="col">Remove</th>
+                </tr>
+                </thead>
+                <tbody class="body-table-tickets">
+
+                </tbody>
+            </table>
         </div>
-        <div class="col">
-            <label for="email-my-acount" class="col-sm-2 col-form-label">Email</label>
-            <input type="text" readonly class="form-control-plaintext" id="email-my-acount" value="">
-        </div>
-        <div class="col">
-            <label for="pass-my-acount" class="col-sm-2 col-form-label">Password</label>
-            <input type="text" readonly class="form-control-plaintext" id="pass-my-acount" value="">
+    </div>
+
+    <div class="tab-pane fade" id="nav-list-films-for-users" role="tabpanel"
+         aria-labelledby="nav-list-films-for-users-tab">
+
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Ticket price</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">Tags</th>
+                    <th scope="col">Reserve</th>
+                </tr>
+                </thead>
+                <tbody class="body-table-films">
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+
 </body>
 </html>

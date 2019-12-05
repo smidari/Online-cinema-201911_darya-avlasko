@@ -1,5 +1,4 @@
-const USERS_COLLECTION = 'usersArray';
-const LOGGED_COLLECTION = 'loggedAs';
+
 
 document.addEventListener('DOMContentLoaded', () => {
 

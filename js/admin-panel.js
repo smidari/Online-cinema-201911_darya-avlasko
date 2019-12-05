@@ -1,7 +1,4 @@
-const USERS_COLLECTION = 'usersArray';
-const LOGGED_COLLECTION = 'loggedAs';
 
-const usersArrayLocalStorage = JSON.parse(localStorage.getItem(USERS_COLLECTION));
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -15,9 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem(LOGGED_COLLECTION);
         document.location.href = 'StartPage.html';
     });
-
-
     fillTableUsers(usersArrayLocalStorage);
+    fillTableFilms(films);
 });
 
 // Func for fill table Users from array localStorage
@@ -37,3 +33,17 @@ function deleteRow(index) {
     localStorage.setItem(USERS_COLLECTION, JSON.stringify(usersArrayLocalStorage));
     fillTableUsers(usersArrayLocalStorage);
 }
+
+function fillTableFilms(films) {
+    let html = '';
+    films.forEach((item, index) => {
+        html += `<tr><td>${index + 1}</td><td>${item.title}</td><td><a href="${item.picture}">Image</a></td>
+        <td>${item.descripton}</td><td>${item.price}</td><td>${item.startDate}</td><td>${item.endDate}</td><td>${item.tags}</td><td><button id="add-reserv onclick="addReserv("1")">&times;</button></td></tr>`
+    });
+    document.querySelector('.body-table-films').innerHTML = html;
+}
+
+
+
+
+

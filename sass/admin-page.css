@@ -1,0 +1,44 @@
+.nav-link {
+  color: #59b8c0;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: #808080;
+}
+
+.users-table {
+  margin-top: 50px;
+}
+
+.navbar-default .navbar-brand {
+  color: red;
+}
+
+.navbar-brand:hover {
+  color: #59b8c0;
+}
+
+.tab-content button {
+  color: #59b8c0;
+  font-weight: bold;
+  margin-top: 20px;
+  border: 1px solid #59b8c0;
+}
+
+.modal-footer button {
+  color: #59b8c0;
+  font-weight: bold;
+  margin-top: 20px;
+  border: 1px solid #59b8c0;
+  background-color: #ffffff;
+}
+.modal-footer button:hover {
+  text-shadow: none;
+  color: #808080;
+  background-color: #ffffff;
+}
+.modal-footer button:active {
+  background-color: #ffffff;
+}
+
+/*# sourceMappingURL=admin-page.css.map */

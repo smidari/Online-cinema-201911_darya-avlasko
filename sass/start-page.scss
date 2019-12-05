@@ -1,0 +1,115 @@
+//colors
+$color_bunker_approx: #141414;
+$color_geyser_approx: #d5dbe0;
+$color_fountain_blue_approx: rgba(89, 184, 192, 1);
+$color_mischka_10_approx: rgba(205, 214, 219, 0.1);
+$white: #ffffff;
+$color_mischka_20_approx: rgba(205, 214, 219, 0.2);
+$color_black_43_approx: rgba(2, 3, 3, 0.43);
+$gray: #808080;
+
+//fonts
+$font_0: Maven Pro;
+$font_1: sans-serif;
+
+//urls
+$url_0: url(../images/background-body.png);
+
+body {
+  font-family: $font_0, $font_1;
+  background-image: $url_0;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+header {
+  letter-spacing: 2px;
+  padding: 12px;
+  background: $color_bunker_approx;
+  color: $color_geyser_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 1px 1px 5px 1px $color_fountain_blue_approx;
+  button {
+    background: $color_mischka_10_approx;
+    color: $color_geyser_approx;
+  }
+}
+ul {
+  margin: 0;
+  padding: 4px;
+}
+li {
+  margin: 0;
+  padding: 4px;
+}
+.menu__item {
+  display: inline;
+  font-size: large;
+  margin-right: 5px;
+  padding: 10px;
+}
+.btn-in {
+  margin-right: 10px;
+  border: 2px solid $color_fountain_blue_approx;
+}
+.btn-up {
+  margin-right: 10px;
+  border: 2px solid $color_fountain_blue_approx;
+}
+.modal-sign-in {
+  color: $white;
+  background: $color_mischka_20_approx;
+}
+.btn-sign-in {
+  color: $white;
+  background: $color_mischka_20_approx;
+}
+.modal-sign-up {
+  color: $white;
+  background: $color_mischka_20_approx;
+}
+.btn-sign-up {
+  color: $white;
+  background: $color_mischka_20_approx;
+}
+.content-sign-in {
+  background-image: $url_0;
+}
+.content-sign-up {
+  background-image: $url_0;
+}
+.carousel {
+  margin-top: 20px;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: -1px 36px 29px -16px $color_black_43_approx;
+}
+.new-films-start-page__item {
+  margin-bottom: 50px;
+}
+.section-new-films {
+  width: 75%;
+  margin: 0 auto;
+  h2 {
+    margin: 30px;
+    font-weight: bold;
+  }
+}
+.menu a {
+  color: $color_geyser_approx;
+}
+.logo a {
+  color: $color_fountain_blue_approx;
+  font-size: 25px;
+  font-weight: bold;
+}
+footer a {
+  text-decoration: none;
+  color: $gray;
+  &:hover {
+    text-decoration: none;
+    color: $gray;
+  }
+}

@@ -1,0 +1,44 @@
+//colors
+$red: red;
+$color_fountain_blue_approx: #59b8c0;
+$gray: #808080;
+$white: #ffffff;
+
+.nav-link {
+  color: $color_fountain_blue_approx;
+  text-decoration: none;
+  &:hover {
+    color: $gray;
+  }
+}
+.users-table {
+  margin-top: 50px;
+}
+.navbar-default .navbar-brand {
+  color: $red;
+}
+.navbar-brand:hover {
+  color: $color_fountain_blue_approx;
+}
+.tab-content button {
+  color: $color_fountain_blue_approx;
+  font-weight: bold;
+  margin-top: 20px;
+  border: 1px solid $color_fountain_blue_approx;
+}
+.modal-footer button {
+  color: $color_fountain_blue_approx;
+  font-weight: bold;
+  margin-top: 20px;
+  border: 1px solid $color_fountain_blue_approx;
+  background-color: $white;
+  &:hover {
+    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: none;
+    color: $gray;
+    background-color: $white;
+  }
+  &:active {
+    background-color: $white;
+  }
+}

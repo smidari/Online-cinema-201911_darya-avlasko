@@ -1,0 +1,30 @@
+{
+  "name": "onlinecinema",
+  "version": "1.0.0",
+  "description": "online cinema",
+  "main": "index.js",
+  "dependencies": {
+    "prettier": "^1.19.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier-eslint": "^9.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smidari/Online-cinema.git"
+  },
+  "author": "Darya Smirnova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smidari/Online-cinema/issues"
+  },
+  "homepage": "https://github.com/smidari/Online-cinema#readme"
+}
