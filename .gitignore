@@ -4,9 +4,6 @@
 .idea/dictionaries
 .idea
 
-..webStorm
-.node_modules
-
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
