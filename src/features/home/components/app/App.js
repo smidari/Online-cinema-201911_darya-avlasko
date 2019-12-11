@@ -1,13 +1,26 @@
 import React from 'react';
 import './App.css';
-import Header from "../Admin/header/Header";
+import {BrowserRouter, Route} from 'react-router-dom'
+import Main from "../main/Main";
+import Navbar from "../admin/navbar/Navbar";
+import Header from "../ui/header/Header";
+import ListFilms from "../admin/listFilms/ListFilms";
+import ListUsers from "../admin/listUsers/ListUsers";
 
-const App = () => {
+
+const App = (props) => {
+
     return (
-        <div className='app-wrapper'>
-            <Header />
-        </div>
-            );
-            }
+        <div>
+            <Header/>
+            <BrowserRouter>
+                <Route exact path="/" component={Main}/>
+                <Route path="/admin" component={Navbar}/>
+                <Route path="/admin/films" render={ () => <ListFilms thFilmData={props.state.thFilmData} />}/>
 
-            export default App;
+            </BrowserRouter>
+        </div>
+    )
+};
+
+export default App;
