@@ -5,14 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './features/home/components/app/App';
-// import * as serviceWorker from './serviceWorker';
+import App from './components/app/App';
 
-import state from "./features/home/components/redax/state";
+import {deleteUser} from "./redax/state";
+import state from "./redax/state";
 
 
 
-ReactDOM.render(<App state={state} />, document.getElementById('root'));
+ReactDOM.render(<App state={state} deleteUser={deleteUser}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
