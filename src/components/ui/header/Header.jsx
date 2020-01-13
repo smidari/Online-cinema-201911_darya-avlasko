@@ -1,8 +1,14 @@
-import React from "react";
-import { Navbar, Nav,NavDropdown, Button, FormControl, Form } from "react-bootstrap";
+import React from 'react';
+import { Navbar, Nav, Button, Form } from 'react-bootstrap';
 
 
 const Header = (props) => {
+    let state = {
+        dataNav: [
+            {href: '/admin', name: 'Admin'},
+            {href: '/user', name: 'User'},
+        ],
+    };
     return (
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">Online cinema</Navbar.Brand>
@@ -20,7 +26,7 @@ const Header = (props) => {
             </Navbar.Collapse>
         </Navbar>
 
-    )
+    );
 };
 
 export default Header;

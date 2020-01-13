@@ -1,18 +1,22 @@
-import $ from 'jquery';
-import Popper from "popper.js";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 import App from './components/app/App';
 
-import {deleteUser} from "./redax/state";
-import state from "./redax/state";
+const rootElement = document.getElementById('root');
 
-
-
-ReactDOM.render(<App state={state} deleteUser={deleteUser}/>, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            < App />
+        </Provider>
+    </BrowserRouter>, rootElement
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

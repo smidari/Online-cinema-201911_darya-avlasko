@@ -6,7 +6,7 @@ const Home = (props) => {
     return (
         <div className='app-wrapper'>
             <Header dataNav={props.dataNav}/>
-            <Carusel dataCarusel={props.dataCarusel}/>
+            <Carusel />
 
         </div>
     )

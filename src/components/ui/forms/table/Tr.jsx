@@ -8,9 +8,11 @@ const Tr = (props) => {
             <td>{props.fname}</td>
             <td>{props.lname}</td>
             <td>{props.email}</td>
-            <Button variant="outline-danger" onClick={props.deleteUser}>{props.remove}</Button>
+            <Button variant="outline-danger" onClick={e => props.deleteUser(props.id)}>{props.remove}</Button>
         </tr>
     )
 };
 
 export default Tr;
+
+

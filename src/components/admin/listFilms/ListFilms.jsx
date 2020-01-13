@@ -1,6 +1,6 @@
-import React from "react";
-import Table from "../../ui/forms/table/Table";
-import {Button} from "react-bootstrap";
+import React from 'react';
+import Table from '../../ui/forms/table/Table';
+import {Button} from 'react-bootstrap';
 
 
 const ListFilms = (props) => {
