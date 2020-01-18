@@ -1,14 +1,12 @@
-import React from "react";
-import Carusel from "./carusel/Carusel";
-import Header from "../ui/header/Header";
+import React from 'react';
+import Carusel from './carusel/Carusel';
+import Header from '../ui/header/Header';
 
-const Home = (props) => {
-    return (
-        <div className='app-wrapper'>
-            <Header dataNav={props.dataNav}/>
-            <Carusel />
+const Home = props => (
+  <div className="app-wrapper">
+    <Header dataNav={props.dataNav} />
+    <Carusel />
 
-        </div>
-    )
-}
+  </div>
+);
 export default Home;

@@ -1,14 +1,11 @@
-import React from "react";
-import Home from "./Home";
-import {connect} from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
+import Home from './Home';
 
 
-
-let mapStateToProps = (state) => {
-    return {
-        dataNav: state.home.dataNav,
-    }
-};
+const mapStateToProps = state => ({
+  dataNav: state.home.dataNav,
+});
 
 
 const HomeContainer = connect(mapStateToProps)(Home);

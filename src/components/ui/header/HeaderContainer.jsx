@@ -1,12 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Header from './Header';
-import {connect} from 'react-redux';
 
-let mapStateToProps = (state) => {
-    return {
-        dataNav: state.header.dataNavAdmin,
-    }
-};
+const mapStateToProps = state => ({
+  dataNav: state.header.dataNavAdmin,
+});
 
 const HeaderContainer = connect(mapStateToProps)(Header);
 

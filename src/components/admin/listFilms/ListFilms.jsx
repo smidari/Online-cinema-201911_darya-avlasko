@@ -1,15 +1,24 @@
 import React from 'react';
-import Table from '../../ui/forms/table/Table';
-import {Button} from 'react-bootstrap';
+import TableFilms from "../../ui/forms/table/TableFilms";
+import BtnAddFilm from "./BtnAddFilm";
+
+import MyForm from "./example";
 
 
-const ListFilms = (props) => {
-    return (
-        <div>
-            <Button  variant="outline-info">Add</Button>
-            <Table thdata={props.thdata} />
-        </div>
-    )
-};
+class ListFilms extends React.Component {
+    render() {
+        return (
+          <div>
+              <MyForm addFilm={this.props.addFilm}/>
+            {/* <Button variant="outline-info">Add</Button> */}
+            <BtnAddFilm addFilm={this.props.addFilm}/>
+            <TableFilms thdata={this.props.thdata} trdata={this.props.trdata} />
+
+          </div>
+
+        );
+    }
+}
 
 export default ListFilms;
+
