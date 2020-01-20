@@ -2,7 +2,7 @@ import React from 'react';
 import Carusel from './carusel/Carusel';
 import Header from '../ui/header/Header';
 
-const Home = props => (
+const Home = props=> (
   <div className="app-wrapper">
     <Header dataNav={props.dataNav} />
     <Carusel />

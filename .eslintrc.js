@@ -12,8 +12,8 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
     },
-    extends: [ 'airbnb', 'airbnb/hooks',  "prettier"],
-    plugins: ['react', 'react-hooks' ,  "prettier"],
+    extends: [ 'airbnb', 'airbnb/hooks', 'react-app', 'prettier'],
+    plugins: ['react', 'react-hooks',  'prettier'],
     globals: {
         $: 'readonly',
     },

@@ -6,15 +6,15 @@ import CarouselItem from 'react-bootstrap/CarouselItem';
 const Carusel = props => {
   const state = {
     dataCarusel: [
-      { alt: 'film', src: 'https://s3.vcdn.biz/static/f/1914745521/image.jpg/pt/r0x0x4' },
-      { alt: 'film', src: 'https://s7.vcdn.biz/static/f/1922095141/image.jpg/pt/r0x0x4' },
-      { alt: 'film', src: 'https://s3.vcdn.biz/static/f/1885584981/image.jpg/pt/r0x0x4' },
+      { alt: 'film1', src: 'https://s3.vcdn.biz/static/f/1914745521/image.jpg/pt/r0x0x4' },
+      { alt: 'film2', src: 'https://s7.vcdn.biz/static/f/1922095141/image.jpg/pt/r0x0x4' },
+      { alt: 'film3', src: 'https://s3.vcdn.biz/static/f/1885584981/image.jpg/pt/r0x0x4' },
     ],
   };
   return (
     <Carousel>
       {state.dataCarusel.map(item => (
-        <CarouselItem><img
+        <CarouselItem  key={item.alt.toString()}><img
           width={item.width}
           src={item.src}
           alt={item.alt}

@@ -1,5 +1,6 @@
 const DELETE_USER = 'DELETE-USER';
 const ADD_FILM = 'ADD_FILM';
+const DELETE_FILM = 'DELETE_FILM';
 
 const initialState = {
     tableUsers: {
@@ -84,7 +85,9 @@ const initialState = {
                 price: '9$',
                 start: '14:00',
                 end: '17:00',
-                tags: '#thewitch',
+                tags: '#geminiman',
+                remove: 'remove',
+                reserve: 'reserve',
             },
             {
                 id: '2',
@@ -96,6 +99,8 @@ const initialState = {
                 start: '18:00',
                 end: '19:00',
                 tags: '#astra',
+                remove: 'remove',
+                reserve: 'reserve',
             },
             {
                 id: '3',
@@ -107,6 +112,8 @@ const initialState = {
                 start: '20:00',
                 end: '22:00',
                 tags: '#joker',
+                remove: 'remove',
+                reserve: 'reserve',
             }, {
                 id: '4',
                 title: 'IT Chapter Two',
@@ -117,6 +124,8 @@ const initialState = {
                 start: '15:00',
                 end: '16:00',
                 tags: '#itchaptertwo',
+                remove: 'remove',
+                reserve: 'reserve',
             },
             {
                 id: '5',
@@ -128,6 +137,8 @@ const initialState = {
                 start: '23:00',
                 end: '01:00',
                 tags: '#thedarkknight',
+                remove: 'remove',
+                reserve: 'reserve',
             },
 
 
@@ -137,22 +148,28 @@ const initialState = {
 
 const adminPageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case DELETE_USER:
-            const {trUsers} = state.tableUsers;
-            const users = trUsers.filter(item => item.id !== action.id);
-            const newState = {...state};
-            newState.tableUsers.trUsers = users;
-            return newState;
-
-        case ADD_FILM: {
-
+        case DELETE_USER: {
+          const {trUsers} = state.tableUsers;
+          const users = trUsers.filter(item => item.id !== action.id);
+          const newState = {...state};
+          newState.tableUsers.trUsers = users;
+          return newState;
+        }
+            case ADD_FILM: {
             const newState = {...state};
             const films = [...state.tableFilms.trFilms];
             films.push(action.newFilm);
             newState.tableFilms.trFilms = films;
             return newState;
         }
-        default:
+        case DELETE_FILM:{
+            const {trFilms} = state.tableFilms;
+            const films = trFilms.filter(item => item.id !== action.id);
+            const newState = {...state};
+            newState.tableFilms.trFilms = films;
+            return newState;
+        }
+         default:
             return state;
     }
 };
@@ -170,5 +187,13 @@ export const addFilmActionCreator = newFilm => {
       newFilm,
     };
 };
+
+export const deleteFilmActionCreator = id => {
+    return {
+        type: DELETE_FILM,
+        id,
+    }
+};
+
 export default adminPageReducer;
 

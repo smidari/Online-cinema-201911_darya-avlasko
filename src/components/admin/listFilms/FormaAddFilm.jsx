@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Col, Container, Form, Modal} from "react-bootstrap";
+import { Button, Col, Form } from "react-bootstrap";
 
 export default class MyForm extends React.Component {
     constructor(props) {
@@ -14,6 +14,7 @@ export default class MyForm extends React.Component {
         start: '',
         end: '',
         tags: '',
+        remove: 'remove',
     };
 
    change = e => {

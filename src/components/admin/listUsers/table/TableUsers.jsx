@@ -1,5 +1,6 @@
 import React from 'react';
-import Th from './Th';
+import PropTypes from "prop-types";
+import Th from '../../../ui/forms/table/Th';
 import TrUsers from './TrUsers';
 
 const TableUsers = props => (
@@ -7,12 +8,19 @@ const TableUsers = props => (
     <table className="table table-striped">
       <thead>
         <tr>
-          {props.thdata.map(item => <Th th={item.th} scope={item.scope} />)}
+          {props.thdata.map(item => (
+            <Th
+              key={item.th}
+              th={item.th}
+              scope={item.scope}
+            />
+))}
         </tr>
       </thead>
       <tbody className="body-table-films">
         {props.trdata.map(item => (
           <TrUsers
+            key={item.id.toString()}
             id={item.id}
             fname={item.fname}
             lname={item.lname}
@@ -25,5 +33,11 @@ const TableUsers = props => (
     </table>
   </div>
 );
+
+TableUsers.propTypes = {
+    trdata: PropTypes.array,
+    thdata: PropTypes.array,
+    deleteUser: PropTypes.func,
+};
 
 export default TableUsers;
