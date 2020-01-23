@@ -13,7 +13,6 @@ class ListFilmsAdmin extends React.Component {
     render() {
         return (
           <div>
-            <MyForm addFilm={this.props.addFilm} />
             <BtnAddFilm addFilm={this.props.addFilm} />
             <TableFilmsAdmin
               thdata={this.props.thdata}

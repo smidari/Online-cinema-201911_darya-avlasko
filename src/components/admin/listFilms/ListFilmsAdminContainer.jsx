@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListFilmsAdmin from './ListFilmsAdmin';
-import { addFilmActionCreator,  deleteFilmActionCreator } from '../../../redux/redusers/admin-page-reduser';
+import { addFilmActionCreator,  deleteFilmActionCreator } from '../../../redux/action-creators/action-creator-admin-page';
 
 
 const mapStateToProps = state => ({

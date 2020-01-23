@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListUsers from './ListUsers';
-import { deleteUserActionCreator } from '../../../redux/redusers/admin-page-reduser';
+import { deleteUserActionCreator } from '../../../redux/action-creators/action-creator-admin-page';
 
 const mapStateToProps = state => ({
   thdata: state.adminPage.tableUsers.thUsesrData,

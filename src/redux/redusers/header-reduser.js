@@ -2,9 +2,10 @@ const initialState = {
   dataNavAdmin: [
     { href: '/admin/films', name: 'Films' },
     { href: '/admin/users', name: 'Users' },
+    { href: '/admin/deleteuser', name: 'Delete Users' },
   ],
   dataNavUser: [
-    // { href: '/user/myaccount', name: 'My Account' },
+    { href: '/user/myaccount', name: 'My Account' },
     { href: '/user/films', name: 'Films' },
     { href: '/user/reservation', name: 'Reservation' },
   ],

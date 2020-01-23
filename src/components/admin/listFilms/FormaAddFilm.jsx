@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, Col, Form } from "react-bootstrap";
 
 export default class MyForm extends React.Component {
-    constructor(props) {
+        constructor(props) {
         super(props);
         this.state = this.emptyState;
     }
@@ -17,7 +17,7 @@ export default class MyForm extends React.Component {
         remove: 'remove',
     };
 
-   change = e => {
+    change = e => {
         const { name, value } = e.target;
         this.setState({ [name]: value})
    };
@@ -29,7 +29,6 @@ export default class MyForm extends React.Component {
 
     render() {
         const {title, description, price, start, end, tags } = this.state;
-
         return(
           <div className="container mt-3">
             <Form>

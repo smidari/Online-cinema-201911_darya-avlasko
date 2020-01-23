@@ -1,6 +1,4 @@
-const DELETE_USER = 'DELETE-USER';
-const ADD_FILM = 'ADD_FILM';
-const DELETE_FILM = 'DELETE_FILM';
+import {DELETE_USER, ADD_FILM, DELETE_FILM } from "../const";
 
 const initialState = {
     tableUsers: {
@@ -155,7 +153,7 @@ const adminPageReducer = (state = initialState, action) => {
           newState.tableUsers.trUsers = users;
           return newState;
         }
-            case ADD_FILM: {
+        case ADD_FILM: {
             const newState = {...state};
             const films = [...state.tableFilms.trFilms];
             films.push(action.newFilm);
@@ -169,31 +167,12 @@ const adminPageReducer = (state = initialState, action) => {
             newState.tableFilms.trFilms = films;
             return newState;
         }
-         default:
+        default:
             return state;
     }
 };
 
-export const deleteUserActionCreator = id => {
-    return {
-        type: DELETE_USER,
-        id,
-    };
-};
 
-export const addFilmActionCreator = newFilm => {
-    return {
-      type: ADD_FILM,
-      newFilm,
-    };
-};
-
-export const deleteFilmActionCreator = id => {
-    return {
-        type: DELETE_FILM,
-        id,
-    }
-};
 
 export default adminPageReducer;
 

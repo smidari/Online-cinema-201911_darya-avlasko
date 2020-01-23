@@ -1,55 +1,59 @@
 import React, {useState} from 'react';
 import {Button, Col, Form, Modal} from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
-function BtnAddFilm (props) {
-  
+function BtnSignUp (props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    const [formData, setFormData] = useState({
-        title: '',
-        description: '',
-        price: '',
-        start: '',
-        end: '',
-        tags: '',
-        remove: 'remove',
+    const [formData, setFormData] = useState(
+        {
+        fname: '',
+        lname: '',
+        username: '',
+        email: '',
+        password: '',
     });
-
     const updateFormData = event =>
         setFormData({
             ...formData,
             [event.target.name]: event.target.value,
         });
+    const { fname, lname, username, email, password } =  formData;
 
-    const {title, description, price, start, end, tags } =  formData;
+    // const addNewUser = e => {
+    //
+    //     const USERS_COLLECTION = 'usersArray';
+    //     const usersArray = localStorage.getItem(USERS_COLLECTION);
+    //     if (!usersArray) {
+    //         const admin = [{email: 'admin@gmail.com', pass: 'root', isAdmin: true}];
+    //         localStorage.setItem(USERS_COLLECTION, JSON.stringify(admin));
+    //     };
+    //
+    //     const usersArrayLocalStorage = JSON.parse(localStorage.getItem(USERS_COLLECTION));
+    //     usersArrayLocalStorage.push(e);
+    //     localStorage.setItem(USERS_COLLECTION, JSON.stringify(usersArrayLocalStorage));
+    // };
 
-    const sda = () => {
-        handleClose();
-        props.addFilm(formData)
-    };
 
     return (
       <>
         <Button variant='outline-info' onClick={handleShow}>
-                Add Film
+                Sign Up
         </Button>
 
-        <Modal size='lg' show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Add Film</Modal.Title>
+            <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
               <Form.Group>
                 <Form.Row>
-                  <Col sm={2}><Form.Label>Title</Form.Label></Col>
+                  <Col sm={2}><Form.Label>First Name</Form.Label></Col>
                   <Col sm={10}>
                     <Form.Control
-                      name='title'
-                      value={title}
+                      name='fname'
+                      value={fname}
                       onChange={e => updateFormData(e)}
                     />
                   </Col>
@@ -58,14 +62,12 @@ function BtnAddFilm (props) {
 
               <Form.Group>
                 <Form.Row>
-                  <Col sm={2}> <Form.Label>Description</Form.Label></Col>
+                  <Col sm={2}><Form.Label>Last Name</Form.Label></Col>
                   <Col sm={10}>
                     <Form.Control
-                      name='description'
-                      value={description}
+                      name='lname'
+                      value={lname}
                       onChange={e => updateFormData(e)}
-                      as='textarea'
-                      rows="3"
                     />
                   </Col>
                 </Form.Row>
@@ -73,11 +75,11 @@ function BtnAddFilm (props) {
 
               <Form.Group>
                 <Form.Row>
-                  <Col sm={2}><Form.Label>Price</Form.Label></Col>
+                  <Col sm={2}><Form.Label>Username</Form.Label></Col>
                   <Col sm={10}>
                     <Form.Control
-                      name='price'
-                      value={price}
+                      name='username'
+                      value={username}
                       onChange={e => updateFormData(e)}
                     />
                   </Col>
@@ -86,59 +88,44 @@ function BtnAddFilm (props) {
 
               <Form.Group>
                 <Form.Row>
-                  <Col sm={2}> <Form.Label>Start</Form.Label></Col>
-                  <Col sm={3}>
-                    <Form.Control
-                      name='start'
-                      value={start}
-                      onChange={e => updateFormData(e)}
-                    />
-                  </Col>
-                </Form.Row>
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Row>
-                  <Col sm={2}> <Form.Label>End</Form.Label></Col>
-                  <Col sm={3}>
-                    <Form.Control
-                      name='end'
-                      value={end}
-                      onChange={e => updateFormData(e)}
-                    />
-                  </Col>
-                </Form.Row>
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Row>
-                  <Col sm={2}><Form.Label>Tags</Form.Label></Col>
+                  <Col sm={2}><Form.Label>Email</Form.Label></Col>
                   <Col sm={10}>
                     <Form.Control
-                      name='tags'
-                      value={tags}
+                      name='email'
+                      value={email}
                       onChange={e => updateFormData(e)}
                     />
                   </Col>
                 </Form.Row>
               </Form.Group>
+
+              <Form.Group>
+                <Form.Row>
+                  <Col sm={2}><Form.Label>Password</Form.Label></Col>
+                  <Col sm={10}>
+                    <Form.Control
+                      name='password'
+                      value={password}
+                      onChange={e => updateFormData(e)}
+                    />
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+
             </Form>
           </Modal.Body>
           <Modal.Footer>
+            <Button variant='outline-success' onClick={() => console.log(formData)}>
+                        Sign up
+            </Button>
             <Button variant='outline-secondary' onClick={handleClose}>
                         Close
             </Button>
-            <Button variant='outline-success' onClick={() => sda()}>
-                        Add Film
-            </Button>
+
           </Modal.Footer>
         </Modal>
       </>
-    )
+    );
 }
 
-BtnAddFilm.propTypes = {
-    addFilm: PropTypes.func,
-};
-
-export default BtnAddFilm;
+export default BtnSignUp;
