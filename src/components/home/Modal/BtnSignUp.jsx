@@ -5,6 +5,9 @@ function BtnSignUp (props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+
     const [formData, setFormData] = useState(
         {
         fname: '',
@@ -20,19 +23,6 @@ function BtnSignUp (props) {
         });
     const { fname, lname, username, email, password } =  formData;
 
-    // const addNewUser = e => {
-    //
-    //     const USERS_COLLECTION = 'usersArray';
-    //     const usersArray = localStorage.getItem(USERS_COLLECTION);
-    //     if (!usersArray) {
-    //         const admin = [{email: 'admin@gmail.com', pass: 'root', isAdmin: true}];
-    //         localStorage.setItem(USERS_COLLECTION, JSON.stringify(admin));
-    //     };
-    //
-    //     const usersArrayLocalStorage = JSON.parse(localStorage.getItem(USERS_COLLECTION));
-    //     usersArrayLocalStorage.push(e);
-    //     localStorage.setItem(USERS_COLLECTION, JSON.stringify(usersArrayLocalStorage));
-    // };
 
 
     return (

@@ -5,16 +5,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import ModalProvider from "react-redux-modal-provider";
 import store from './redux/store';
 import App from './components/app/App';
+
+
 
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <BrowserRouter>
+
     <Provider store={store}>
-      <App />
+      <div>
+        <App />
+
+          <ModalProvider />
+      </div>
     </Provider>
+
+
+
   </BrowserRouter>, rootElement
 );
 

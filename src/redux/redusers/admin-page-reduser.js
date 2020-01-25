@@ -1,4 +1,6 @@
+import React from "react";
 import {DELETE_USER, ADD_FILM, DELETE_FILM } from "../const";
+
 
 const initialState = {
     tableUsers: {
@@ -142,7 +144,23 @@ const initialState = {
 
         ],
     },
+    modalAddFilm: {
+        modalData:{
+            title: 'Add Film',
+            btn: 'Add',
+        },
+        modalFormData: [
+            {name: 'title'},
+            {name: 'description'},
+            {name: 'price' },
+            {name: 'start' },
+            {name: 'end'},
+            {name: 'tags' },
+        ],
+    },
 };
+
+
 
 const adminPageReducer = (state = initialState, action) => {
     switch (action.type) {

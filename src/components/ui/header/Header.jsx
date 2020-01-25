@@ -1,14 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, Nav, Button, Form } from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './header.css';
+import { showModal } from 'react-redux-modal-provider';
 import BtnSigmIn from "../../home/Modal/BtnSignIn";
-import BtnSigmUp from "../../home/Modal/BtnSignUp";
-import BtnSignUpContainer from "../../home/Modal/BtnSignUpContainer";
-
+import MyModal from "../MyModal";
+import AddModal from "../../admin/listFilms/ModalUi";
 
 const Header = props => {
+
+
+    const customStyles = {
+        content : {
+            top                   : '0',
+            left                  : '0',
+            left                 : 'auto',
+    },
+    };
+
+
+
+
   return (
     <Navbar className="top-menu" bg="dark" variant="dark">
       <Navbar.Brand>Online cinema</Navbar.Brand>
@@ -21,11 +34,15 @@ const Header = props => {
             </Link>
 ))}
         </Nav>
-          
-        <Form className="btn-header">
-          <BtnSigmIn />
-          <BtnSignUpContainer />
-        </Form>
+          <button
+              type="button"
+              onClick={() => showModal(MyModal)}>
+              Present modal
+          </button>
+
+        <BtnSigmIn />
+
+
       </Navbar.Collapse>
     </Navbar>
 
