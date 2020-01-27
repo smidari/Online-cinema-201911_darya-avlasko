@@ -1,34 +1,16 @@
+import React, {useState} from "react";
 import {Col, Form} from "react-bootstrap";
-import React from "react";
-
-import FormGroupUi from "./FormGroupUi";
 
 const FormUi = props => {
-
-    const {title, description, price, start, end, tags } = props.formData;
-
     return (
-
       <Form>
-
-
-        {/* {props.modalFormData.map(item => ( */}
-        {/*   */}
-        {/*    <FormGroupUi */}
-        {/*    name={item.name} */}
-        {/*    value={} */}
-        {/*    updateFormData={props.updateFormData} /> */}
-
-        {/*    ))} */}
-
-
         <Form.Group>
           <Form.Row>
             <Col sm={2}><Form.Label>Title</Form.Label></Col>
             <Col sm={10}>
               <Form.Control
                 name='title'
-                value={title}
+                value={props.formData.title}
                 onChange={e => props.updateFormData(e)}
               />
             </Col>
@@ -41,7 +23,7 @@ const FormUi = props => {
             <Col sm={10}>
               <Form.Control
                 name='description'
-                value={description}
+                value={props.formData.description}
                 onChange={e => props.updateFormData(e)}
                 as='textarea'
                 rows="3"
@@ -56,7 +38,7 @@ const FormUi = props => {
             <Col sm={10}>
               <Form.Control
                 name='price'
-                value={price}
+                value={props.formData.price}
                 onChange={e => props.updateFormData(e)}
               />
             </Col>
@@ -69,7 +51,7 @@ const FormUi = props => {
             <Col sm={3}>
               <Form.Control
                 name='start'
-                value={start}
+                value={props.formData.start}
                 onChange={e => props.updateFormData(e)}
               />
             </Col>
@@ -82,7 +64,7 @@ const FormUi = props => {
             <Col sm={3}>
               <Form.Control
                 name='end'
-                value={end}
+                value={props.formData.end}
                 onChange={e => props.updateFormData(e)}
               />
             </Col>
@@ -95,16 +77,14 @@ const FormUi = props => {
             <Col sm={10}>
               <Form.Control
                 name='tags'
-                value={tags}
+                value={props.formData.tags}
                 onChange={e => props.updateFormData(e)}
               />
             </Col>
           </Form.Row>
         </Form.Group>
-
-
-
       </Form>
     )
 };
+
 export default FormUi;

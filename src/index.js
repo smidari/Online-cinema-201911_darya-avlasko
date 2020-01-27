@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import ModalProvider from "react-redux-modal-provider";
 import store from './redux/store';
 import App from './components/app/App';
+import {ModalBodyProvider} from "./components/example/ModalBodyContext";
+import ModalRoot from "./components/example/ModalRoot";
 
 
 
@@ -15,7 +17,8 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <BrowserRouter>
-
+<ModalBodyProvider>
+    <ModalRoot/>
     <Provider store={store}>
       <div>
         <App />
@@ -23,7 +26,7 @@ ReactDOM.render(
           <ModalProvider />
       </div>
     </Provider>
-
+</ModalBodyProvider>
 
 
   </BrowserRouter>, rootElement

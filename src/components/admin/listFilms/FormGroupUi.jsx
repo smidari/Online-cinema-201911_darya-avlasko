@@ -1,4 +1,4 @@
-import {Col, Form} from "react-bootstrap";
+import {Col, Form, Modal} from "react-bootstrap";
 import React from "react";
 
 const FormGroupUi = props => {
@@ -22,5 +22,14 @@ const FormGroupUi = props => {
 
 export default FormGroupUi;
 
+
+{/*    {props.modalFormData.map(item => ( */}
+{/*    <FormGroupUi */}
+{/*      name={item.name} */}
+{/*      value={formData[item.name]} */}
+{/*      updateFormData={e => updateFormData(e)} */}
+{/*    /> */}
+{/*          ))} */}
+{/* </Form> */}
 
 

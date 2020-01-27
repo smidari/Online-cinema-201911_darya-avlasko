@@ -3,31 +3,26 @@ import PropTypes from 'prop-types';
 import {Button} from "react-bootstrap";
 import {showModal} from "react-redux-modal-provider";
 import TableFilmsAdmin from "./table/TableFilmsAdmin";
-import ModalUniform from "./ModalUi";
-import FormUi from "./FormUi";
-
+import ModalAddFilm from "./ModalAddFilm";
 
 class ListFilmsAdmin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
-    
+
     render() {
         return (
           <div>
-
             <Button
               variant='outline-info'
-              onClick={() => showModal(ModalUniform,{
+              onClick={() => showModal(ModalAddFilm,{
                   title: this.props.modaltitle,
-                  btndata: this.props.modalbtndata,
+                  nameModalBtn: this.props.nameModalBtn,
                   confirmation: this.props.addFilm,
                   modalFormData: this.props.modalFormData,
-                  //form: <FormUi />,
-              } )}
-              addFilm={this.props.addFilm}
-
+                         })}
+             // addFilm={this.props.addFilm}
             >Add
             </Button>
             <TableFilmsAdmin
@@ -43,6 +38,8 @@ class ListFilmsAdmin extends React.Component {
 ListFilmsAdmin.propTypes = {
     addFilm: PropTypes.func,
     deleteFilm: PropTypes.func,
+    nameModalBtn: PropTypes.string,
+    modaltitle: PropTypes.string,
     trdata: PropTypes.array,
     thdata: PropTypes.array,
 };

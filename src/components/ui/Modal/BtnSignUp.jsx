@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Col, Form, Modal} from 'react-bootstrap';
 
-function BtnSignUp (props) {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-
-
+const BtnSignUp = props => {
     const [formData, setFormData] = useState(
         {
         fname: '',
@@ -22,8 +16,6 @@ function BtnSignUp (props) {
             [event.target.name]: event.target.value,
         });
     const { fname, lname, username, email, password } =  formData;
-
-
 
     return (
       <>
@@ -116,6 +108,6 @@ function BtnSignUp (props) {
         </Modal>
       </>
     );
-}
+};
 
 export default BtnSignUp;

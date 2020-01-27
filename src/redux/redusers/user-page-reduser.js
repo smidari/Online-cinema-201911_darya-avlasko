@@ -104,9 +104,6 @@ const userPageReducer = (state = initialState, action) => {
             return newState;
         }
         case DELETE_MY_ACCOUNT: {
-            // const newState = {...state};
-            // newState.deleteAccount = true;
-            // return newState;
             console.log('delete');
             return state;
         }
@@ -114,7 +111,6 @@ const userPageReducer = (state = initialState, action) => {
             return state;
     }
     };
-
 
 export default userPageReducer;
 
