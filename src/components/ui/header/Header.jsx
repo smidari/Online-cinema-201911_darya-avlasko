@@ -15,7 +15,7 @@ const Header = props => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         
         <Navbar.Collapse id='basic-navbar-nav'>
-          {props.isAuth ? (
+          {JSON.parse(localStorage.getItem('authToken')) === 'admin' ? (
             <Nav className='menu-main'>
               <Link className='menu-main-item' to='/admin/films'>Films</Link>
               <Link className='menu-main-item' to='/admin/users'>Users</Link>
@@ -24,7 +24,7 @@ const Header = props => {
         ) : <Nav className='menu-main' />}
 
           <Form className='header-btn'>
-            { props.isAuth ?  <Button variant='outline-info'>Log out</Button>  :
+            { JSON.parse(localStorage.getItem('authToken')) === 'admin' ?  <Button variant='outline-info'>Log out</Button>  :
 
                 (
                   <MyModal
