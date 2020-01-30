@@ -28,7 +28,7 @@ const reducers = combineReducers({
   userPage: userPageReducer,
   home: homeReduser,
   auth: authReduser,
-  modalProvider,
+
 });
 
 const store = createStore(reducers);

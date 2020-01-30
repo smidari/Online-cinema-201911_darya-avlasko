@@ -1,11 +1,4 @@
-import {SET_USER_DATA, VEREFICATION_USER} from "../const";
-
-export const setAuthUserData = userAuthData => {
-    return {
-        type:  SET_USER_DATA,
-        userAuthData,
-    }
-};
+import { VEREFICATION_USER } from "../const";
 
 export const verificationUser = user => {
     return {

@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import ModalProvider from "react-redux-modal-provider";
+
 import store from './redux/store';
 import App from './components/app/App';
-import {ModalBodyProvider} from "./components/example/ModalBodyContext";
-import ModalRoot from "./components/example/ModalRoot";
+import {ModalProvider} from "./components/ui/modal/ModalContext";
+import ModalRoot from "./components/ui/modal/ModaRoot";
 
 
 
@@ -17,16 +17,17 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <BrowserRouter>
-<ModalBodyProvider>
-    <ModalRoot/>
-    <Provider store={store}>
-      <div>
-        <App />
+    <ModalProvider>
 
-          <ModalProvider />
-      </div>
-    </Provider>
-</ModalBodyProvider>
+        <ModalRoot />
+
+        <Provider store={store}>
+          <div>
+            <App />
+          </div>
+        </Provider>
+
+    </ModalProvider>
 
 
   </BrowserRouter>, rootElement

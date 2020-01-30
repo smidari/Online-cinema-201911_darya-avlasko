@@ -6,9 +6,7 @@ import { addFilmActionCreator,  deleteFilmActionCreator } from '../../../redux/a
 const mapStateToProps = state => ({
     thdata: state.adminPage.tableFilms.thFilmsData,
     trdata: state.adminPage.tableFilms.trFilms,
-    modaltitle: state.adminPage.modalAddFilm.modalData.title,
-    nameModalBtn: state.adminPage.modalAddFilm.modalData.nameBtn,
-    modalFormData: state.adminPage.modalAddFilm.modalFormData,
+    stateModal: state.adminPage.modalAddFilm.stateModal,
 });
 
 const mapDispatchToProps = dispatch => ({

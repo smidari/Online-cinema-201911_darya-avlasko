@@ -143,18 +143,16 @@ const initialState = {
         ],
     },
     modalAddFilm: {
-        modalData:{
-            title: 'Add Film',
-            nameBtn: 'Add',
+        stateModal: {
+            value: '',
+            title: '',
+            description: '',
+            price: '',
+            start: '',
+            end: '',
+            tags: '',
+            remove: 'remove',
         },
-        modalFormData: [
-            {name: 'title'},
-            {name: 'description'},
-            {name: 'price' },
-            {name: 'start' },
-            {name: 'end'},
-            {name: 'tags' },
-        ],
     },
 };
 

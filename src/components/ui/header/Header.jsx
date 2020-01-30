@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import {Navbar, Nav, Button, Form} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './header.css';
-import { showModal } from 'react-redux-modal-provider';
-import BtnSignIn from "../Modal/BtnSignIn";
+
+import MyModal from "../modal/MyModal";
+import FormForModalSignIn from "./FormForModalSignIn";
+
 
 const Header = props => {
     return (
@@ -22,22 +24,28 @@ const Header = props => {
         ) : <Nav className='menu-main' />}
 
           <Form className='header-btn'>
-            { props.isAuth ?  <Button variant='outline-info'>Log out</Button>  : (
-              <Button
-                variant='outline-info'
-                onClick={() => showModal(BtnSignIn, {
-                    verificationUser: props.verificationUser,
-                })}
-              >Sign in
-              </Button>
+            { props.isAuth ?  <Button variant='outline-info'>Log out</Button>  :
+
+                (
+                  <MyModal
+                    nameBtnOpenModal='Sign in'
+                    modaltitle='Sign in'
+                    nameBtnConfirmation='Sign in'
+                    confirmationFunc={props.verificationUser}
+                    bodyModal={FormForModalSignIn}
+                    stateModal={props.stateModal}
+                  />
             )}
+
           </Form>
+
         </Navbar.Collapse>
       </Navbar>
     );
 };
 
 Header.propTypes = {
+    stateModal: PropTypes.object,
     isAuth: PropTypes.bool,
     verificationUser: PropTypes.func,
 };
