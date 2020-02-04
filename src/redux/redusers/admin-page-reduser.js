@@ -1,66 +1,6 @@
 import {DELETE_USER, ADD_FILM, DELETE_FILM } from "../const";
 
 const initialState = {
-    tableUsers: {
-        thUsesrData: [
-            {th: 'Id', scope: 'col'},
-            {th: 'First name', scope: 'col'},
-            {th: 'Last name', scope: 'col'},
-            {th: 'Email', scope: 'col'},
-            {th: 'Remove request', scope: 'col'},
-        ],
-        trUsers: [
-            {
-                id: '0',
-                fname: 'Daria',
-                lname: 'Smirnova',
-                email: 'sda@gamail.com',
-                remove: 'remove',
-            },
-            {
-                id: '1',
-                fname: 'Ivan',
-                lname: 'Ivanov',
-                email: 'vanivanov@gamail.com',
-                remove: 'remove',
-            },
-            {
-                id: '2',
-                fname: 'Kirill',
-                lname: 'Petrov',
-                email: 'petrov@gamail.com',
-                remove: 'remove',
-            },
-            {
-                id: '3',
-                fname: 'Ivan',
-                lname: 'Ivanov',
-                email: 'vanivanov@gamail.com',
-                remove: 'remove',
-            },
-            {
-                id: '4',
-                fname: 'Kirill',
-                lname: 'Petrov',
-                email: 'petrov@gamail.com',
-                remove: 'remove',
-            },
-            {
-                id: '5',
-                fname: 'Ivan',
-                lname: 'Ivanov',
-                email: 'vanivanov@gamail.com',
-                remove: 'remove',
-            },
-            {
-                id: '6',
-                fname: 'Kirill',
-                lname: 'Petrov',
-                email: 'petrov@gamail.com',
-                remove: 'remove',
-            },
-        ],
-    },
     tableFilms: {
         thFilmsData: [
             {th: 'Id', scope: 'col'},
@@ -158,13 +98,6 @@ const initialState = {
 
 const adminPageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case DELETE_USER: {
-          const {trUsers} = state.tableUsers;
-          const users = trUsers.filter(item => item.id !== action.id);
-          const newState = {...state};
-          newState.tableUsers.trUsers = users;
-          return newState;
-        }
         case ADD_FILM: {
             const newState = {...state};
             const films = [...state.tableFilms.trFilms];
