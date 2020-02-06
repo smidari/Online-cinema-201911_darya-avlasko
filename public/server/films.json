@@ -1,0 +1,9 @@
+{
+  "films": [
+    { "id": "1", "title": "Gemini Man", "picture": "123","description": "Will Smith ",
+    "price": "9$","start": "14:00","end": "17:00","tags": "#geminiman", "reserve": "reserve","remove": "remove" }
+  ]
+}
+ 
+ 
+

@@ -1,9 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {setAuthUserData, verificationUser} from '../../redux/actions/action-creator-auth';
+import {getUsers, logout, verificationUser} from "../../redux/actions/users";
+
+
 
 class HeaderContainer extends React.Component {
+componentDidMount() {
+   this.props.getUsers();
+}
 
    render() {
       return <Header {...this.props} />
@@ -11,15 +16,12 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-   isAuth: state.auth.isAuth,
-   stateModal: state.auth.modalSignIn.stateModal,
+   stateModal: state.users.modalSignIn.stateModal,
+   admin: state.users.admin,
+   user: state.users.user,
 
 });
 
-const mapDispatchToProps = dispatch => ({
-   verificationUser:  user => dispatch(verificationUser(user)),
-});
 
-export default connect(mapStateToProps,mapDispatchToProps )(HeaderContainer) ;
+export default connect(mapStateToProps, {verificationUser, getUsers, logout} )(HeaderContainer) ;
 
-//{setAuthUserData, verificationUser}

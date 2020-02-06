@@ -1,15 +1,8 @@
 import { connect } from 'react-redux';
 import MyAccount from "./MyAccount";
-import { deleteMyAccountActionCreator } from '../../../redux/actions/action-creator-user-page';
+import { deleteMyAccount } from '../../../redux/actions/user-page';
 
-const mapStateToProps = state => ({
 
-});
-
-const mapDispatchToProps = dispatch => ({
-    deleteMyAccount: () => dispatch(deleteMyAccountActionCreator()),
-});
-
-const MyAccountContainer = connect(mapStateToProps, mapDispatchToProps)(MyAccount);
+const MyAccountContainer = connect({deleteMyAccount})(MyAccount);
 
 export default MyAccountContainer;

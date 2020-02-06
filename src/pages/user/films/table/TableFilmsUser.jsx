@@ -18,7 +18,7 @@ const TableFilmsUser = props => (
         </tr>
       </thead>
       <tbody className="body-table-films">
-        {props.trdata.map(item => (
+        {props.films.map(item => (
           <TrFilmsUser
             key={item.title}
             id={item.id}

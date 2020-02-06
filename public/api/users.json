@@ -1,8 +1,0 @@
-{
-  "users": [
-    { "id": "0","fname": "Daria", "lname": "Smirnova", "email": "sda@gamail.com", "remove": "remove" },
-    { "id": "1","fname": "Mike", "lname": "Ivanov", "email": "mike@gamail.com", "remove": "remove" },
-    { "id": "2","fname": "Anna", "lname": "Petrova", "email": "anna@gamail.com", "remove": "remove" },
-    { "id": "3","fname": "Vlad", "lname": "Semenov", "email": "semen@gamail.com", "remove": "remove" }
-  ]
-}

@@ -1,0 +1,11 @@
+{
+  "users": [
+    { "id": "0","fname": "Daria", "lname": "Smirnova", "email": "admin", "password": "admin",
+      "isAdmin": true,
+      "remove": "remove" },
+    { "id": "1","fname": "Mike", "lname": "Ivanov", "email": "user", "password": "123", "isAdmin": false,"remove": "remove" },
+    { "id": "2","fname": "Anna", "lname": "Petrova", "email": "anna@gamail.com", "password": "123", "isAdmin": false,"remove": "remove" },
+    { "id": "3","fname": "Vlad", "lname": "Semenov", "email": "semen@gamail.com", "password": "123", "isAdmin": false,"remove": "remove" }
+  ]
+}
+

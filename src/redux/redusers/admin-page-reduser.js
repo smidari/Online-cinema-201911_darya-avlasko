@@ -1,4 +1,4 @@
-import {DELETE_USER, ADD_FILM, DELETE_FILM } from "../const";
+import { ADD_FILM, DELETE_FILM } from "../const";
 
 const initialState = {
     tableFilms: {
@@ -101,13 +101,13 @@ const adminPageReducer = (state = initialState, action) => {
         case ADD_FILM: {
             const newState = {...state};
             const films = [...state.tableFilms.trFilms];
-            films.push(action.newFilm);
+            films.push(action.payload);
             newState.tableFilms.trFilms = films;
             return newState;
         }
         case DELETE_FILM:{
             const {trFilms} = state.tableFilms;
-            const films = trFilms.filter(item => item.id !== action.id);
+            const films = trFilms.filter(item => item.id !== action.payload);
             const newState = {...state};
             newState.tableFilms.trFilms = films;
             return newState;

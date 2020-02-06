@@ -3,27 +3,15 @@ import  thunkMiddleware  from 'redux-thunk';
 import adminPageReducer from './redusers/admin-page-reduser';
 import homeReduser from './redusers/home-reduser';
 import userPageReducer from "./redusers/user-page-reduser";
-import authReduser from "./redusers/auth-reduser";
-import usersReducer from "./redusers/users-list-reduser";
-
-
-export const USERS_COLLECTION = 'usersArray';
-export const usersArrayLocalStorage = JSON.parse(localStorage.getItem(USERS_COLLECTION));
-let usersArray = localStorage.getItem(USERS_COLLECTION);
-
-if (!usersArray) {
-  let admin = [{email: 'admin', pass: 'root', userId: 'admin'}];
-  localStorage.setItem(USERS_COLLECTION, JSON.stringify(admin));}
-
-
+import usersReducer from "./redusers/users-reduser";
+import filmsReducer from "./redusers/films-reducer";
 
 const reducers = combineReducers({
   adminPage: adminPageReducer,
-  adminUsersPage: usersReducer,
+  users: usersReducer,
+  films: filmsReducer,
   userPage: userPageReducer,
   home: homeReduser,
-  auth: authReduser,
-
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

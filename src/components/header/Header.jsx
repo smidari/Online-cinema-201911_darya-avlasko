@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Navbar, Nav, Button, Form} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './header.css';
-
 import MyModal from "../modal/MyModal";
 import FormForModalSignIn from "../forms/forms-modal-body/FormForModalSignIn";
 
@@ -15,26 +14,34 @@ const Header = props => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         
         <Navbar.Collapse id='basic-navbar-nav'>
-          {JSON.parse(localStorage.getItem('authToken')) === 'admin' ? (
-            <Nav className='menu-main'>
-              <Link className='menu-main-item' to='/admin/films'>Films</Link>
-              <Link className='menu-main-item' to='/admin/users'>Users</Link>
-              <Link className='menu-main-item' to='/admin/deleteuser'>Delete Users</Link>
-            </Nav>
-        ) : <Nav className='menu-main' />}
+
+          { props.admin === true && (
+                <Nav className='menu-main'>
+                  <Link className='menu-main-item' to='/admin/films'>Films</Link>
+                  <Link className='menu-main-item' to='/admin/users'>Users</Link>
+                  <Link className='menu-main-item' to='/admin/deleteuser'>Delete Users</Link>
+                </Nav>
+              )}
+          { props.user === true  && (
+                <Nav className='menu-main'>
+                  <Link className='menu-main-item' to='/user/myaccount'>My Account</Link>
+                  <Link className='menu-main-item' to='/user/films'>Films</Link>
+                  <Link className='menu-main-item' to='/user/reservation'>Reserve films</Link>
+                </Nav>
+              )}
 
           <Form className='header-btn'>
-            { JSON.parse(localStorage.getItem('authToken')) === 'admin' ?  <Button variant='outline-info'>Log out</Button>  :
+            { props.admin || props.user === true ?
+              <Button variant='outline-info' onClick={()=>props.logout()}>Log out</Button>  :  (
 
-                (
-                  <MyModal
-                    nameBtnOpenModal='Sign in'
-                    modaltitle='Sign in'
-                    nameBtnConfirmation='Sign in'
-                    confirmationFunc={props.verificationUser}
-                    bodyModal={FormForModalSignIn}
-                    stateModal={props.stateModal}
-                  />
+                <MyModal
+                  nameBtnOpenModal='Sign in'
+                  modaltitle='Sign in'
+                  nameBtnConfirmation='Sign in'
+                  confirmationFunc={props.verificationUser}
+                  bodyModal={FormForModalSignIn}
+                  stateModal={props.stateModal}
+                />
             )}
 
           </Form>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListFilmsAdmin from './ListFilmsAdmin';
-import { addFilmActionCreator,  deleteFilmActionCreator } from '../../../redux/actions/action-creator-admin-page';
+import { addFilm,  deleteFilm } from '../../../redux/actions/admin-page';
 
 
 const mapStateToProps = state => ({
@@ -9,11 +9,8 @@ const mapStateToProps = state => ({
     stateModal: state.adminPage.modalAddFilm.stateModal,
 });
 
-const mapDispatchToProps = dispatch => ({
-    addFilm: newFilm => dispatch(addFilmActionCreator(newFilm)),
-    deleteFilm: id => dispatch(deleteFilmActionCreator(id)),
-});
 
-const ListFilmsAdminContainer = connect(mapStateToProps, mapDispatchToProps)(ListFilmsAdmin);
+
+const ListFilmsAdminContainer = connect(mapStateToProps, {deleteFilm, addFilm})(ListFilmsAdmin);
 
 export default ListFilmsAdminContainer;

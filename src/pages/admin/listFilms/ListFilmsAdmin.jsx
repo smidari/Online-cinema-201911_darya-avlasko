@@ -15,7 +15,7 @@ class ListFilmsAdmin extends React.Component {
         return (
           <div>
             <MyModal
-              className='modalsda'
+              className='modal-add-film'
               nameBtnOpenModal='Add film'
               size='lg'
               modaltitle='Add film'

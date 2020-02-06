@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { deleteUser, getUsers } from "../../../redux/redusers/users-list-reduser";
 import UsersList from "./UsersList";
+import {deleteUser, getUsers} from "../../../redux/actions/users";
 
 class  UsersListContainer extends React.Component {
   componentDidMount() {
@@ -18,8 +18,8 @@ class  UsersListContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  thdata: state.adminUsersPage.thUsesrData,
-  users: state.adminUsersPage.users,
+  thdata: state.users.thUsesrData,
+  users: state.users.users,
 });
 
 export default connect(mapStateToProps,

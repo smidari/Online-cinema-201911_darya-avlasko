@@ -1,4 +1,5 @@
-import {ADD_USER} from "../const";
+
+
 
 const initialState = {
   dataNav: [
@@ -13,7 +14,7 @@ const initialState = {
       email: '',
       password: '',
     },
-  data: ['fname', 'lname', 'username', 'email', 'password' ],
+    data: ['fname', 'lname', 'username', 'email', 'password' ],
   },
 
 
@@ -21,19 +22,11 @@ const initialState = {
 
 const homeReduser = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_USER: {
-      return state;
-    }
+
     default:
       return state;
   }
 };
 
-export const addUserActionCreator = user => {
-  return {
-    type: ADD_USER,
-    user,
-  }
-};
 
 export default homeReduser;

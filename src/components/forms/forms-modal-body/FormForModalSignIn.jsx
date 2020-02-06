@@ -10,6 +10,7 @@ const FormForModalSignIn = props => {
                     <Col sm={2}> <Form.Label>Email</Form.Label></Col>
                     <Col sm={10}>
                         <Form.Control
+                            placeholder="Enter email"
                             name='email'
                             onChange={e => props.updateFormData(e)}
                         />
@@ -22,6 +23,8 @@ const FormForModalSignIn = props => {
                     <Col sm={2}><Form.Label>Password</Form.Label></Col>
                     <Col sm={10}>
                         <Form.Control
+                            type="password"
+                            placeholder="Password"
                             name='password'
                             onChange={e => props.updateFormData(e)}
                         />

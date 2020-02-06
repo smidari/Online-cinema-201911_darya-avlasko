@@ -19,6 +19,7 @@ class MyModal extends React.Component  {
         return  <Component {...props} />
     };
 
+
 render() {
             return (
               <ModalConsumer>
@@ -44,7 +45,10 @@ render() {
                                           <Button
                                               variant='outline-success'
                                               onClick={
-                                                  () =>this.props.confirmationFunc(this.state)
+                                                  () => {
+                                                      hideModal();
+                                                      this.props.confirmationFunc(this.state)
+                                                  }
                                               }
                                           >
                                             {this.props.nameBtnConfirmation}

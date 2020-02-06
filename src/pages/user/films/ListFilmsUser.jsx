@@ -13,7 +13,7 @@ class ListFilmsUser extends React.Component {
           <div>
             <TableFilmsUser
               thdata={this.props.thdata}
-              trdata={this.props.trdata}
+              films={this.props.films}
               reserveFilm={this.props.reserveFilm}
             />
           </div>
