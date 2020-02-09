@@ -1,0 +1,52 @@
+.top-menu {
+  box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.menu-main {
+  padding: 10px 0 5px;
+  text-align: center;
+}
+
+.menu-main-item {
+  color: #30a5b7;
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 5px;
+  margin: 0 10px 0 10px;
+  font-size: 17px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.menu-main-item:after {
+  content: "|";
+  color: #606060;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 15px;
+}
+.menu-main-item:last-child:after {
+  content: none;
+}
+.menu-main-item:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header-btn {
+  position: absolute;
+  right: 15px;
+}
+
+.sda {
+  background-color: #61dafb;
+  width: 10px;
+}
+
+/*# sourceMappingURL=hedar.css.map */
