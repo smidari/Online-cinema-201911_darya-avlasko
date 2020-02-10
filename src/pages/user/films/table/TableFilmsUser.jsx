@@ -1,24 +1,24 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import TrFilmsUser from "./TrFilmsUser";
-import Th from "../../../../components/forms/table/Th";
+import PropTypes from 'prop-types';
+import TrFilmsUser from './TrFilmsUser';
+import Th from '../../../../components/forms/table/Th';
 
-const TableFilmsUser = props => (
+const TableFilmsUser = (props) => (
   <div className="container mt-3">
     <table className="table table-striped">
       <thead>
         <tr>
-          {props.thdata.map(item => (
+          {props.thdata.map((item) => (
             <Th
               key={item.th}
               th={item.th}
               scope={item.scope}
             />
-                ))}
+          ))}
         </tr>
       </thead>
       <tbody className="body-table-films">
-        {props.films.map(item => (
+        {props.films.map((item) => (
           <TrFilmsUser
             key={item.title}
             id={item.id}
@@ -32,18 +32,17 @@ const TableFilmsUser = props => (
             reserve={item.reserve}
             reserveFilm={props.reserveFilm}
           />
-            ))}
+        ))}
       </tbody>
     </table>
   </div>
 );
 
 TableFilmsUser.propTypes = {
-    reserveFilm: PropTypes.func,
-    trdata: PropTypes.array,
-    thdata: PropTypes.array,
+  reserveFilm: PropTypes.func,
+  trdata: PropTypes.array,
+  thdata: PropTypes.array,
 };
 
 
 export default TableFilmsUser;
-

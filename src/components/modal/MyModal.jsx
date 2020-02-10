@@ -1,35 +1,30 @@
 import React from 'react';
-import {Button, Modal} from 'react-bootstrap';
-import { ModalConsumer} from './ModalContext';
+import { Button, Modal } from 'react-bootstrap';
+import { ModalConsumer } from './ModalContext';
 
 
-class MyModal extends React.Component  {
-    constructor(props) {
-        super(props);
-        this.state = this.props.stateModal;
-        this.updateFormData = this.updateFormData.bind(this);
-    };
+class MyModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.stateModal;
+    this.updateFormData = this.updateFormData.bind(this);
+  }
 
-   updateFormData = event =>
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
+   updateFormData = (event) => this.setState({
+     [event.target.name]: event.target.value,
+   });
 
-     addBodyModal = (Component, props ) => {
-        return  <Component {...props} />
-    };
+     addBodyModal = (Component, props) => <Component {...props} />;
 
-
-render() {
-            return (
+     render() {
+       return (
               <ModalConsumer>
                 {({ showModal }) => (
 
                   <Button
                     variant='outline-info'
-                    onClick={() =>
-                                showModal(
-                                    ({ hideModal, ...otherProps }) => (
+                    onClick={() => showModal(
+                      ({ hideModal, ...otherProps }) => (
                                       <Modal
                                           size={this.props.size}
                                           show onHide={hideModal} {...otherProps}
@@ -39,15 +34,15 @@ render() {
                                         </Modal.Header>
                                         <Modal.Body>
                                           {this.addBodyModal(this.props.bodyModal,
-                                               { updateFormData: this.updateFormData})}
+                                            { updateFormData: this.updateFormData })}
                                         </Modal.Body>
                                         <Modal.Footer>
                                           <Button
                                               variant='outline-success'
                                               onClick={
                                                   () => {
-                                                      hideModal();
-                                                      this.props.confirmationFunc(this.state)
+                                                    hideModal();
+                                                    this.props.confirmationFunc(this.state);
                                                   }
                                               }
                                           >
@@ -58,19 +53,16 @@ render() {
                                           </Button>
                                         </Modal.Footer>
                                       </Modal>
-                                    ))}
+                      ),
+                    )}
                   >
                           {this.props.nameBtnConfirmation}
                   </Button>
-                    )}
+                )}
               </ModalConsumer>
 
-            )
-        }
+       );
+     }
 }
 
-
-
-
-    export default MyModal;
-
+export default MyModal;

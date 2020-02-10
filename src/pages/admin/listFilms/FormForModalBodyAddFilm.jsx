@@ -1,8 +1,7 @@
-import React from "react";
-import {Col, Form} from "react-bootstrap";
+import React from 'react';
+import { Col, Form } from 'react-bootstrap';
 
-const FormForModalBodyAddFilm = props => {
-    return (
+const FormForModalBodyAddFilm = (props) => (
       <Form>
           <Form.Group>
           <Form.Row>
@@ -11,7 +10,7 @@ const FormForModalBodyAddFilm = props => {
               <Form.Control
                 name='title'
 
-                onChange={e => props.updateFormData(e)}
+                onChange={(e) => props.updateFormData(e)}
               />
             </Col>
           </Form.Row>
@@ -24,7 +23,7 @@ const FormForModalBodyAddFilm = props => {
               <Form.Control
                 name='description'
 
-                onChange={e => props.updateFormData(e)}
+                onChange={(e) => props.updateFormData(e)}
                 as='textarea'
                 rows="3"
               />
@@ -39,7 +38,7 @@ const FormForModalBodyAddFilm = props => {
               <Form.Control
                 name='price'
 
-                onChange={e => props.updateFormData(e)}
+                onChange={(e) => props.updateFormData(e)}
               />
             </Col>
           </Form.Row>
@@ -52,7 +51,7 @@ const FormForModalBodyAddFilm = props => {
               <Form.Control
                 name='start'
 
-                onChange={e => props.updateFormData(e)}
+                onChange={(e) => props.updateFormData(e)}
               />
             </Col>
           </Form.Row>
@@ -65,7 +64,7 @@ const FormForModalBodyAddFilm = props => {
               <Form.Control
                 name='end'
 
-                onChange={e => props.updateFormData(e)}
+                onChange={(e) => props.updateFormData(e)}
               />
             </Col>
           </Form.Row>
@@ -78,13 +77,12 @@ const FormForModalBodyAddFilm = props => {
               <Form.Control
                 name='tags'
 
-                onChange={e => props.updateFormData(e)}
+                onChange={(e) => props.updateFormData(e)}
               />
             </Col>
           </Form.Row>
         </Form.Group>
       </Form>
-    )
-};
+);
 
 export default FormForModalBodyAddFilm;

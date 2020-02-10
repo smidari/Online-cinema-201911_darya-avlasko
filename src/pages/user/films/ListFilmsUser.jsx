@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TableFilmsUser from "./table/TableFilmsUser";
+import TableFilmsUser from './table/TableFilmsUser';
 
 class ListFilmsUser extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    render() {
-        return (
+  render() {
+    return (
           <div>
             <TableFilmsUser
               thdata={this.props.thdata}
@@ -17,15 +17,14 @@ class ListFilmsUser extends React.Component {
               reserveFilm={this.props.reserveFilm}
             />
           </div>
-        );
-    }
+    );
+  }
 }
 
 ListFilmsUser.propTypes = {
-    reserveFilm: PropTypes.func,
-    trdata: PropTypes.array,
-    thdata: PropTypes.array,
+  reserveFilm: PropTypes.func,
+  trdata: PropTypes.array,
+  thdata: PropTypes.array,
 };
 
 export default ListFilmsUser;
-

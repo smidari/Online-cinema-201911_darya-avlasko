@@ -1,10 +1,10 @@
-import React from "react";
-import { ModalConsumer} from "./ModalContext";
+import React from 'react';
+import { ModalConsumer } from './ModalContext';
 
 const ModalRoot = () => (
     <ModalConsumer>
-        {({ component: Component, props, hideModal }) =>
-            Component ? <Component {...props} hideModal={hideModal} /> : null
+        {({ component: Component, props, hideModal }) => (
+          Component ? <Component {...props} hideModal={hideModal} /> : null)
         }
     </ModalConsumer>
 );

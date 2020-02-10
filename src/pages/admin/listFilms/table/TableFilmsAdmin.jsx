@@ -1,24 +1,24 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import Th from '../../../../components/forms/table/Th';
-import TrFilmsAdmin from "./TrFilmsAdmin";
+import TrFilmsAdmin from './TrFilmsAdmin';
 
-const TableFilmsAdmin = props => (
+const TableFilmsAdmin = (props) => (
   <div className="container mt-3">
     <table className="table table-striped">
       <thead>
         <tr>
-          {props.thdata.map(item => (
+          {props.thdata.map((item) => (
             <Th
               key={item.th}
               th={item.th}
               scope={item.scope}
             />
-))}
+          ))}
         </tr>
       </thead>
       <tbody className="body-table-films">
-        {props.trdata.map(item => (
+        {props.trdata.map((item) => (
           <TrFilmsAdmin
             key={item.title}
             id={item.id}
@@ -32,18 +32,17 @@ const TableFilmsAdmin = props => (
             remove={item.remove}
             deleteFilm={props.deleteFilm}
           />
-            ))}
+        ))}
       </tbody>
     </table>
   </div>
 );
 
 TableFilmsAdmin.propTypes = {
-    deleteFilm: PropTypes.func,
-    trdata: PropTypes.array,
-    thdata: PropTypes.array,
+  deleteFilm: PropTypes.func,
+  trdata: PropTypes.array,
+  thdata: PropTypes.array,
 };
 
 
 export default TableFilmsAdmin;
-

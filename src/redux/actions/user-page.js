@@ -1,15 +1,7 @@
-import {RESERVE_FILM, REMOVE_RESERVE_FILM, DELETE_MY_ACCOUNT } from "../const";
 
-export const reserveFilm = id =>({
-        type: RESERVE_FILM,
-        payload: id,
-});
+import { createActions } from 'redux-actions';
 
-export const removeReserveFilm = id => ({
-           type: REMOVE_RESERVE_FILM,
-           payload: id,
-});
-
-export const deleteMyAccount = () => ({
-           type: DELETE_MY_ACCOUNT,
+export const { reserveFilm, removeReserveFilm, deleteMyAccount } = createActions({
+  RESERVE_FILM: (id) => id,
+  REMOVE_RESERVE_FILM: (id) => id,
 });

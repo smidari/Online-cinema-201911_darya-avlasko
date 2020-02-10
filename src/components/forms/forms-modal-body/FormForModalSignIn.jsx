@@ -1,10 +1,8 @@
-import React from "react";
-import {Col, Form} from "react-bootstrap";
+import React from 'react';
+import { Col, Form } from 'react-bootstrap';
 
-const FormForModalSignIn = props => {
-    return (
+const FormForModalSignIn = (props) => (
         <Form>
-
             <Form.Group>
                 <Form.Row>
                     <Col sm={2}> <Form.Label>Email</Form.Label></Col>
@@ -12,12 +10,11 @@ const FormForModalSignIn = props => {
                         <Form.Control
                             placeholder="Enter email"
                             name='email'
-                            onChange={e => props.updateFormData(e)}
+                            onChange={(e) => props.updateFormData(e)}
                         />
                     </Col>
                 </Form.Row>
             </Form.Group>
-
             <Form.Group>
                 <Form.Row>
                     <Col sm={2}><Form.Label>Password</Form.Label></Col>
@@ -26,13 +23,12 @@ const FormForModalSignIn = props => {
                             type="password"
                             placeholder="Password"
                             name='password'
-                            onChange={e => props.updateFormData(e)}
+                            onChange={(e) => props.updateFormData(e)}
                         />
                     </Col>
                 </Form.Row>
             </Form.Group>
         </Form>
-    )
-};
+);
 
 export default FormForModalSignIn;
