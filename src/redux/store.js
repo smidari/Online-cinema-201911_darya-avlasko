@@ -3,7 +3,6 @@ import {
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import adminPageReducer from './redusers/admin-page-reduser';
-import homeReduser from './redusers/home-reduser';
 import userPageReducer from './redusers/user-page-reduser';
 import usersReducer from './redusers/users-reduser';
 import filmsReducer from './redusers/films-reducer';
@@ -13,7 +12,6 @@ const reducers = combineReducers({
   users: usersReducer,
   films: filmsReducer,
   userPage: userPageReducer,
-  home: homeReduser,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

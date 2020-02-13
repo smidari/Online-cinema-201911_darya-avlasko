@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Th from '../../../../components/forms/table/Th';
 import TrReservFilm from './TrReservFilm';
 
-const TableReservFilm = (props) => (
+const TableReservFilm = ({thdata, trdata, removeReserveFilm }) => (
   <div className="container mt-3">
     <table className="table table-striped">
       <thead>
         <tr>
-          {props.thdata.map((item) => (
+          {thdata.map((item) => (
             <Th
               key={item.th}
               th={item.th}
@@ -18,7 +18,7 @@ const TableReservFilm = (props) => (
         </tr>
       </thead>
       <tbody className="body-table-films">
-        {props.trdata.map((item) => (
+        {trdata.map((item) => (
           <TrReservFilm
             key={item.title}
             id={item.id}
@@ -30,7 +30,7 @@ const TableReservFilm = (props) => (
             end={item.end}
             tags={item.tags}
             remove={item.remove}
-            removeReserveFilm={props.removeReserveFilm}
+            removeReserveFilm={removeReserveFilm}
           />
         ))}
       </tbody>
@@ -40,9 +40,14 @@ const TableReservFilm = (props) => (
 
 TableReservFilm.propTypes = {
   removeReserveFilm: PropTypes.func,
-  trdata: PropTypes.array,
-  thdata: PropTypes.array,
+  trdata: PropTypes.arrayOf,
+  thdata: PropTypes.arrayOf,
 };
 
+TableReservFilm.defaultProps = {
+  removeReserveFilm: () => {},
+  trdata: [],
+  thdata: [],
+};
 
 export default TableReservFilm;

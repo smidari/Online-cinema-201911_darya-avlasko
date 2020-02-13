@@ -3,14 +3,17 @@ import {
 } from '../const';
 
 const initialState = {
-  thUsesrData: [
-    { th: 'Id', scope: 'col' },
-    { th: 'First name', scope: 'col' },
-    { th: 'Last name', scope: 'col' },
-    { th: 'Email', scope: 'col' },
-    { th: 'Remove request', scope: 'col' },
-  ],
+  tableUsers: {
+    thUsesrData: [
+      { th: 'Id', scope: 'col' },
+      { th: 'First name', scope: 'col' },
+      { th: 'Last name', scope: 'col' },
+      { th: 'Email', scope: 'col' },
+      { th: 'Remove request', scope: 'col' },
+    ],
+  },
   users: [],
+  removalRequestsFromUsers: [],
   admin: false,
   user: false,
   isFetching: false,
@@ -25,7 +28,6 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_IS_FETCHING: {
-      console.log('preloader');
       return { ...state, isFetching: action.payload };
     }
     case SET_USERS: {
@@ -37,7 +39,9 @@ const usersReducer = (state = initialState, action) => {
         (item) => item.email === action.payload.email
                     && item.password === action.payload.password,
       );
-      if (user.isAdmin === true) {
+      if (!user) {
+        alert('There was a problem. We cannot find this account!');
+      } else if (user.isAdmin === true) {
         newState.admin = true;
       } else if (user.isAdmin === false) {
         newState.user = true;

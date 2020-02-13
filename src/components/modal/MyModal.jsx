@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import PropTypes from "prop-types";
 import { ModalConsumer } from './ModalContext';
-
 
 class MyModal extends React.Component {
   constructor(props) {
@@ -18,51 +18,69 @@ class MyModal extends React.Component {
 
      render() {
        return (
-              <ModalConsumer>
-                {({ showModal }) => (
+         <ModalConsumer>
+           {({ showModal }) => (
 
-                  <Button
-                    variant='outline-info'
-                    onClick={() => showModal(
+             <Button
+               className={this.props.classBtnOpenModal}
+               variant="outline-info"
+               onClick={() => showModal(
                       ({ hideModal, ...otherProps }) => (
-                                      <Modal
-                                          size={this.props.size}
-                                          show onHide={hideModal} {...otherProps}
-                                      >
-                                        <Modal.Header>
-                                          <Modal.Title>{this.props.nameBtnOpenModal}</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>
-                                          {this.addBodyModal(this.props.bodyModal,
+                        <Modal
+                          size={this.props.size}
+                          show
+                          onHide={hideModal}
+                          {...otherProps}
+                        >
+                          <Modal.Header>
+                            <Modal.Title>{this.props.nameBtnOpenModal}</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            {this.addBodyModal(this.props.bodyModal,
                                             { updateFormData: this.updateFormData })}
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                          <Button
-                                              variant='outline-success'
-                                              onClick={
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button
+                              variant="outline-success"
+                              onClick={
                                                   () => {
                                                     hideModal();
                                                     this.props.confirmationFunc(this.state);
                                                   }
                                               }
-                                          >
-                                            {this.props.nameBtnConfirmation}
-                                          </Button>
-                                          <Button variant='outline-secondary' onClick={hideModal}>
-                                                    Close
-                                          </Button>
-                                        </Modal.Footer>
-                                      </Modal>
+                            >
+                              {this.props.nameBtnConfirmation}
+                            </Button>
+                            <Button variant="outline-secondary" onClick={hideModal}>
+                              Close
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                       ),
                     )}
-                  >
-                          {this.props.nameBtnConfirmation}
-                  </Button>
+             >
+               {this.props.nameBtnConfirmation}
+             </Button>
                 )}
-              </ModalConsumer>
+         </ModalConsumer>
 
        );
      }
 }
+
+MyModal.propTypes = {
+  confirmationFunc: PropTypes.func,
+  classBtnOpenModal: PropTypes.string,
+  nameBtnConfirmation: PropTypes.string,
+  size: PropTypes.string,
+  nameBtnOpenModal: PropTypes.string,
+};
+MyModal.defaultProps = {
+  classBtnOpenModal: '',
+  size: '',
+  nameBtnOpenModal: '',
+  nameBtnConfirmation: '',
+  confirmationFunc: () => {},
+};
 
 export default MyModal;

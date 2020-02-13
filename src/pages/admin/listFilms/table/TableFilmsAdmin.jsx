@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Th from '../../../../components/forms/table/Th';
 import TrFilmsAdmin from './TrFilmsAdmin';
 
-const TableFilmsAdmin = (props) => (
+const TableFilmsAdmin = ({thdata, films, deleteFilm}) => (
   <div className="container mt-3">
     <table className="table table-striped">
       <thead>
         <tr>
-          {props.thdata.map((item) => (
+          {thdata.map((item) => (
             <Th
               key={item.th}
               th={item.th}
@@ -18,7 +18,7 @@ const TableFilmsAdmin = (props) => (
         </tr>
       </thead>
       <tbody className="body-table-films">
-        {props.trdata.map((item) => (
+        {films.map((item) => (
           <TrFilmsAdmin
             key={item.title}
             id={item.id}
@@ -30,7 +30,7 @@ const TableFilmsAdmin = (props) => (
             end={item.end}
             tags={item.tags}
             remove={item.remove}
-            deleteFilm={props.deleteFilm}
+            deleteFilm={deleteFilm}
           />
         ))}
       </tbody>
@@ -40,9 +40,13 @@ const TableFilmsAdmin = (props) => (
 
 TableFilmsAdmin.propTypes = {
   deleteFilm: PropTypes.func,
-  trdata: PropTypes.array,
-  thdata: PropTypes.array,
+  films: PropTypes.arrayOf,
+  thdata: PropTypes.arrayOf,
 };
-
+TableFilmsAdmin.defaultProps = {
+  deleteFilm: () => {},
+  films: [],
+  thdata: []
+};
 
 export default TableFilmsAdmin;

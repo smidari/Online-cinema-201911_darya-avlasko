@@ -1,30 +1,48 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import TableFilmsUser from './table/TableFilmsUser';
+import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import Preloader from '../../../components/preloader/Preolader';
+import {getFilms, reserveFilm} from "../../../redux/actions/films";
+import TableFilmsUser from "./table/TableFilmsUser";
 
 class ListFilmsUser extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.props.getFilms();
   }
 
   render() {
     return (
-          <div>
-            <TableFilmsUser
-              thdata={this.props.thdata}
-              films={this.props.films}
-              reserveFilm={this.props.reserveFilm}
-            />
-          </div>
+      <>
+        {this.props.isFetching ? <Preloader /> : (
+          <TableFilmsUser
+            thdata={this.props.thdata}
+            films={this.props.films}
+            reserveFilm={this.props.reserveFilm}
+          />
+)}
+      </>
     );
   }
 }
 
-ListFilmsUser.propTypes = {
-  reserveFilm: PropTypes.func,
-  trdata: PropTypes.array,
-  thdata: PropTypes.array,
-};
+const mapStateToProps = (state) => ({
+  thdata: state.films.tableFilms.thFilmsData,
+  films: state.films.films,
+  isFetching: state.films.isFetching,
+});
 
-export default ListFilmsUser;
+export default connect(mapStateToProps, { reserveFilm, getFilms })(ListFilmsUser);
+ListFilmsUser.propTypes = {
+  getFilms: PropTypes.func,
+  isFetching: PropTypes.bool,
+  thdata: PropTypes.arrayOf,
+  films: PropTypes.arrayOf,
+  reserveFilm: PropTypes.func,
+};
+ListFilmsUser.defaultProps = {
+  getFilms: () => {},
+  isFetching: false,
+  thdata: [],
+  films: [],
+  reserveFilm: () => {},
+};

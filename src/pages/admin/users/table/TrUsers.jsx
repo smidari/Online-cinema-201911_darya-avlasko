@@ -2,13 +2,13 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const TrUsers = (props) => (
+const TrUsers = ({id, fname, lname, email, deleteUser, remove }) => (
   <tr>
-    <td>{props.id}</td>
-    <td>{props.fname}</td>
-    <td>{props.lname}</td>
-    <td>{props.email}</td>
-    <td><Button variant="outline-danger" onClick={() => props.deleteUser(props.id)}>{props.remove}</Button></td>
+    <td>{id}</td>
+    <td>{fname}</td>
+    <td>{lname}</td>
+    <td>{email}</td>
+    <td><Button variant="outline-danger" onClick={() => deleteUser(id)}>{remove}</Button></td>
   </tr>
 );
 
@@ -19,6 +19,14 @@ TrUsers.propTypes = {
   email: PropTypes.string,
   remove: PropTypes.string,
   deleteUser: PropTypes.func,
+};
+TrUsers.defaultProps = {
+  id: '',
+  fname: '',
+  lname: '',
+  email: '',
+  remove: '',
+  deleteUser: () => {},
 };
 
 export default TrUsers;

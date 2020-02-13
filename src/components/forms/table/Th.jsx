@@ -7,5 +7,8 @@ Th.propTypes = {
   th: PropTypes.string,
   scope: PropTypes.string,
 };
-
+Th.defaultProps = {
+  th: '',
+  scope: '',
+};
 export default Th;

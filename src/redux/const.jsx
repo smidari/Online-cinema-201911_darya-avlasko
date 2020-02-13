@@ -12,6 +12,8 @@ export const VEREFICATION_USER = 'VEREFICATION_USER';
 export const  SET_USERS = 'SET_USERS';
 export const LOG_OUT = 'LOG_OUT';
 export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+export const SET_FILMS = 'SET_FILMS';
+export const TOGGLE_IS_FETCHING_FILMS = 'TOGGLE_IS_FETCHING_FILMS';
 
 // const for localStorage
 

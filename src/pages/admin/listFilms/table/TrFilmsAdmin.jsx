@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
-const TrFilmsAdmin = (props) => (
+const TrFilmsAdmin = ({id, title, picture, description, price, start, end, tags, deleteFilm, remove}) => (
   <tr>
-    <td>{props.id}</td>
-    <td>{props.title}</td>
-    <td><img src={props.picture} alt={''} /></td>
-    <td>{props.description}</td>
-    <td>{props.price}</td>
-    <td>{props.start}</td>
-    <td>{props.end}</td>
-    <td>{props.tags}</td>
-    <td><Button variant="outline-danger" onClick={() => props.deleteFilm(props.id)}>{props.remove}</Button></td>
+    <td>{id}</td>
+    <td>{title}</td>
+    <td><img src={picture} alt={''} /></td>
+    <td>{description}</td>
+    <td>{price}</td>
+    <td>{start}</td>
+    <td>{end}</td>
+    <td>{tags}</td>
+    <td><Button variant="outline-danger" onClick={() => deleteFilm(id)}>{remove}</Button></td>
   </tr>
 );
 
@@ -27,6 +27,18 @@ TrFilmsAdmin.propTypes = {
   end: PropTypes.string,
   tags: PropTypes.string,
   remove: PropTypes.string,
+};
+TrFilmsAdmin.defaultProps = {
+  deleteFilm: () => {},
+  id: '',
+  title: '',
+  picture: '',
+  description: '',
+  price: '',
+  start: '',
+  end: '',
+  tags: '',
+  remove: '',
 };
 
 export default TrFilmsAdmin;

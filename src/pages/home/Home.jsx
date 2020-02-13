@@ -5,8 +5,8 @@ import './home.css';
 
 const Home = () => (
   <div className="app-wrapper">
-  <MyCarousel />
-  <Footer fixed="bottom" />
+    <MyCarousel />
+    <Footer fixed="bottom" />
   </div>
 );
 export default Home;

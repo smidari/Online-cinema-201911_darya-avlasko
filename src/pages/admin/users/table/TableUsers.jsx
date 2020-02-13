@@ -4,45 +4,50 @@ import Th from '../../../../components/forms/table/Th';
 import TrUsers from './TrUsers';
 import Preloader from '../../../../components/preloader/Preolader';
 
-const TableUsers = (props) => (
+const TableUsers = ({thdata, users, deleteUser}) => (
   <>
-    {props.isFetching ? <Preloader /> : null}
-  <div className="container mt-3">
-    <table className="table table-striped">
-      <thead>
-        <tr>
-          {props.thdata.map((item) => (
-            <Th
-              key={item.th}
-              th={item.th}
-              scope={item.scope}
-            />
-          ))}
-        </tr>
-      </thead>
 
-      <tbody className="body-table-films">
-        {props.users.map((item) => (
-          <TrUsers
-            key={item.id.toString()}
-            id={item.id}
-            fname={item.fname}
-            lname={item.lname}
-            email={item.email}
-            remove={item.remove}
-            deleteUser={props.deleteUser}
-          />
+    <div className="container mt-3">
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            {thdata.map((item) => (
+              <Th
+                key={item.th}
+                th={item.th}
+                scope={item.scope}
+              />
+          ))}
+          </tr>
+        </thead>
+
+        <tbody className="body-table-films">
+          {users.map((item) => (
+            <TrUsers
+              key={item.id.toString()}
+              id={item.id}
+              fname={item.fname}
+              lname={item.lname}
+              email={item.email}
+              remove={item.remove}
+              deleteUser={deleteUser}
+            />
         ))}
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
   </>
 );
 
 TableUsers.propTypes = {
-  trdata: PropTypes.array,
-  thdata: PropTypes.array,
+  thdata: PropTypes.arrayOf,
+  users: PropTypes.arrayOf,
   deleteUser: PropTypes.func,
+};
+TableUsers.defaultProps = {
+  thdata: [],
+  users: [],
+  deleteUser: () => {},
 };
 
 export default TableUsers;
