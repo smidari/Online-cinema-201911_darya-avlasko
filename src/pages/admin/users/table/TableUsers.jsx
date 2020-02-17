@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Th from '../../../../components/forms/table/Th';
 import TrUsers from './TrUsers';
-import Preloader from '../../../../components/preloader/Preolader';
-
 const TableUsers = ({thdata, users, deleteUser}) => (
   <>
 

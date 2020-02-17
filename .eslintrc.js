@@ -1,23 +1,20 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
+    env: {
+        es6: true,
+        browser: true
     },
-    "extends": [
-        "airbnb-base"
+    parser: "babel-eslint",
+    extends: [
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:prettier/recommended",
+        "prettier/react"
     ],
-    "globals": {
-        $: "readonly",
+    globals: {
+        $: "readonly"
     },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-        'linebreak-style': 'off',
-        'func-names': 'off',
+    rules: {
+        "linebreak-style": "off",
+        "func-names": "off"
     }
 };

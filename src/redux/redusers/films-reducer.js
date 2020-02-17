@@ -1,7 +1,7 @@
 import {
   ADD_FILM, DELETE_FILM, REMOVE_RESERVE_FILM, RESERVE_FILM, SET_FILMS, TOGGLE_IS_FETCHING_FILMS,
 } from '../const';
-
+import { actionTypes } from 'redux-resource';
 
 const initialState = {
   tableFilms: {
@@ -36,12 +36,19 @@ const filmsReducer = (state = initialState, action) => {
       newState.films = films;
       return newState;
     }
-    case DELETE_FILM: {
+    case actionTypes.DEL_FILM: {
+      console.log('sda')
       const newFilms = state.films.filter((item) => item.id !== action.payload);
       const newState = { ...state };
       newState.films = newFilms;
       return newState;
     }
+    // case DELETE_FILM: {
+    //   const newFilms = state.films.filter((item) => item.id !== action.payload);
+    //   const newState = { ...state };
+    //   newState.films = newFilms;
+    //   return newState;
+    // }
     case RESERVE_FILM: {
       const newState = { ...state };
       const films = [...state.films];

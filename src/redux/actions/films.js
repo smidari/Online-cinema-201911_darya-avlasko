@@ -1,6 +1,7 @@
 import {
   ADD_FILM, DELETE_FILM, REMOVE_RESERVE_FILM, RESERVE_FILM, SET_FILMS, TOGGLE_IS_FETCHING_FILMS,
 } from '../const';
+import {createAction} from "redux-actions";
 
 export const setFilms = (films) => ({
   type: SET_FILMS,
@@ -30,11 +31,12 @@ export const addFilm = (newFilm) => ({
   type: ADD_FILM,
   payload: newFilm,
 });
+export const deleteFilm = createAction("DeL_FILM", id => id);
 
-export const deleteFilm = (id) => ({
-  type: DELETE_FILM,
-  payload: id,
-});
+// export const deleteFilm = (id) => ({
+//   type: DELETE_FILM,
+//   payload: id,
+// });
 
 export const reserveFilm = (id) => ({
   type: RESERVE_FILM,

@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Preloader from '../../../components/preloader/Preolader';
 import MyModal from '../../../components/modal/MyModal';
 import FormForModalBodyAddFilm from './FormForModalBodyAddFilm';
 import TableFilmsAdmin from './table/TableFilmsAdmin';
-import { addFilm, deleteFilm, getFilms } from '../../../redux/actions/films';
-
 
 class ListFilmsAdmin extends React.Component {
   componentDidMount() {
@@ -38,14 +35,6 @@ class ListFilmsAdmin extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  thdata: state.films.tableFilms.thFilmsData,
-  films: state.films.films,
-  stateModal: state.adminPage.modalAddFilm.stateModal,
-  isFetching: state.films.isFetching,
-});
-
-export default connect(mapStateToProps, { deleteFilm, addFilm, getFilms })(ListFilmsAdmin);
 
 ListFilmsAdmin.propTypes = {
   deleteFilm: PropTypes.func,
@@ -62,5 +51,6 @@ ListFilmsAdmin.defaultProps = {
   stateModal: {},
 };
 
+export default ListFilmsAdmin;
 
 
