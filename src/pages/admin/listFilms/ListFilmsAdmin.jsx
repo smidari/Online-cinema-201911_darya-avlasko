@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import Preloader from '../../../components/preloader/Preolader';
 import MyModal from '../../../components/modal/MyModal';
 import FormForModalBodyAddFilm from './FormForModalBodyAddFilm';
-import TableFilmsAdmin from './table/TableFilmsAdmin';
+import MyTable from "../../../components/mytable/MyTable";
+import {deleteFilm} from "../../../redux/actions/films";
+
+const columns = ['Id', "Title", "Picture", "Description", "Ticket price", "Start date", "End date", "Tags", "Remove films"];
 
 class ListFilmsAdmin extends React.Component {
   componentDidMount() {
@@ -24,11 +27,7 @@ class ListFilmsAdmin extends React.Component {
           confirmationFunc={this.props.addFilm}
         />
         {this.props.isFetching ? <Preloader /> : (
-          <TableFilmsAdmin
-            thdata={this.props.thdata}
-            films={this.props.films}
-            deleteFilm={this.props.deleteFilm}
-          />
+            <MyTable columns={columns} rows={this.props.films} func={deleteFilm} />
 )}
       </>
     );

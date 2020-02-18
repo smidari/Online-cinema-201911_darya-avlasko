@@ -1,7 +1,8 @@
 import React from 'react';
 import Preloader from '../../../components/preloader/Preolader';
-import TableUsers from './table/TableUsers';
 import MyTable from "../../../components/mytable/MyTable";
+
+const columns = ['#', 'First name', 'Last name', 'Email'];
 
 class UsersList extends React.Component {
   componentDidMount() {
@@ -11,21 +12,12 @@ class UsersList extends React.Component {
   render() {
     return (
       <>
-        <MyTable tbody={this.props.users}/>
-
         {this.props.isFetching ? <Preloader /> : (
-          <TableUsers
-            thdata={this.props.thdata}
-            users={this.props.users}
-            deleteUser={this.props.deleteUser}
-            isFetching={this.props.isFetching}
-          />
+            <MyTable columns={columns} rows={this.props.users} />
         )}
       </>
     );
   }
 }
-
-
 
 export default UsersList;

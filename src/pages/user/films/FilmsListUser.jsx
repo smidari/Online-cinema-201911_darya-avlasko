@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Preloader from "../../../components/preloader/Preolader";
-import TableFilmsUser from "./table/TableFilmsUser";
 import MyTable from "../../../components/mytable/MyTable";
+
+const columns = ['#', 'Title', 'Picture', 'Description', 'Ticket price', 'Start date', 'End date', 'Tags'];
 
 class FilmsListUser extends React.Component {
   componentDidMount() {
@@ -12,13 +13,8 @@ class FilmsListUser extends React.Component {
   render() {
     return (
       <>
-
         {this.props.isFetching ? <Preloader /> : (
-          <TableFilmsUser
-            thdata={this.props.thdata}
-            films={this.props.films}
-            reserveFilm={this.props.reserveFilm}
-          />
+            <MyTable columns={columns} rows={this.props.films} />
 )}
       </>
     );

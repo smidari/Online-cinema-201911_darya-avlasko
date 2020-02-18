@@ -2,14 +2,14 @@
 const initialState = {
   tableFilms: {
     thFilmsData: [
-      { th: 'Id', scope: 'col' },
-      { th: 'Title', scope: 'col' },
-      { th: 'Picture', scope: 'col' },
-      { th: 'Description', scope: 'col' },
-      { th: 'Ticket price', scope: 'col' },
-      { th: 'Start date', scope: 'col' },
-      { th: 'End date', scope: 'col' },
-      { th: 'Tags', scope: 'col' },
+      { "#": "",
+        "Title": "",
+        "Picture": "",
+        "Description": "",
+        "Ticket price": "",
+        "Start date": "",
+        "End date": "",
+        "Tags": []}
     ],
   },
   modalAddFilm: {

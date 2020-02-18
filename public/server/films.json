@@ -1,17 +1,17 @@
 {
   "films": [
-    { "id": "1", "title": "Gemini Man", "picture": "https://images-na.ssl-images-amazon.com/images/I/81XZ3dEnELL._SX150_.jpg","description": "Will Smith stars in the nonstop action thrill-ride from Academy Award-winning director Ang Lee. Retired hitman (Smith) is forced on the run and finds himself hunted by his ultimate adversary - a younger clone of himself. ",
-    "price": "9$","start": "14:00","end": "17:00","tags": "#geminiman", "reserve": "reserve","remove": "remove" },
-    { "id": "2", "title": "Ad Astra", "picture": "https://images-na.ssl-images-amazon.com/images/I/81NjplquRbL._SX150_.jpg","description": "Astronaut Roy McBride (Brad Pitt) travels to the outer edges of the solar system to find his missing father and unravel a mystery that threatens the survival of our planet. ",
-        "price": "19$","start": "18:00","end": "20:00","tags": "#astra", "reserve": "reserve","remove": "remove" },
-        { "id": "3", "title": "Joker", "picture": "https://images-na.ssl-images-amazon.com/images/I/91lnpx4HLoL._SX150_.jpg","description": "Joker” is an original, standalone story. Arthur Fleck (Joaquin Phoenix), a man disregarded by society, is not only a gritty character study, but also a broader cautionary tale. ",
-            "price": "10$","start": "22:00","end": "00:00","tags": "#Joker", "reserve": "reserve","remove": "remove" },
-            { "id": "4", "title": "IT Chapter Two", "picture": "https://images-na.ssl-images-amazon.com/images/I/81piK9f7bcL._SX150_.jpg", "description": "Because every 27 years evil revisits the town of Derry, Maine, “IT Chapter Two” brings the characters back together as adults, nearly three decades after the events of the first film. ",
-                "price": "12$","start": "14:00","end": "17:00","tags": "#itchaptertwo", "reserve": "reserve","remove": "remove" },
-                { "id": "5", "title": "The Dark Knight", "picture": "https://images-na.ssl-images-amazon.com/images/I/91zBlQ1iqoL._SX150_.jpg","description": "The Dark Knight reunites Christian Bale with director Christopher Nolan and takes Batman across the world in his quest to fight a growing criminal threat known as The Joker  ",
-                    "price": "9$","start": "14:00","end": "17:00","tags": "#thedarknight", "reserve": "reserve","remove": "remove" }
+    { "Id": "1", "Title": "Gemini Man", "Picture": "https://images-na.ssl-images-amazon.com/images/I/81XZ3dEnELL._SX150_.jpg","Description": "Will Smith stars in the nonstop action thrill-ride from Academy Award-winning director Ang Lee. Retired hitman (Smith) is forced on the run and finds himself hunted by his ultimate adversary - a younger clone of himself. ",
+    "Ticket price": "9$","Start date": "14:00","End date": "17:00","Tags": ["#geminiman"] },
+    { "Id": "2", "Title": "Ad Astra", "Picture": "https://images-na.ssl-images-amazon.com/images/I/81NjplquRbL._SX150_.jpg","Description": "Astronaut Roy McBride (Brad Pitt) travels to the outer edges of the solar system to find his missing father and unravel a mystery that threatens the survival of our planet. ",
+        "Ticket price": "19$","Start date": "18:00","End date": "20:00","Tags": ["#astra"] },
+        { "Id": "3", "Title": "Joker", "Picture": "https://images-na.ssl-images-amazon.com/images/I/91lnpx4HLoL._SX150_.jpg","Description": "Joker” is an original, standalone story. Arthur Fleck (Joaquin Phoenix), a man disregarded by society, is not only a gritty character study, but also a broader cautionary tale. ",
+            "Ticket price": "10$","Start date": "22:00","End date": "00:00","Tags": ["#Joker"]},
+            { "Id": "4", "Title": "IT Chapter Two", "Picture": "https://images-na.ssl-images-amazon.com/images/I/81piK9f7bcL._SX150_.jpg", "Description": "Because every 27 years evil revisits the town of Derry, Maine, “IT Chapter Two” brings the characters back together as adults, nearly three decades after the events of the first film. ",
+                "Ticket price": "12$","Start date": "14:00","End date": "17:00","Tags": ["#itchaptertwo"] },
+                { "Id": "5", "Title": "The Dark Knight", "Picture": "https://images-na.ssl-images-amazon.com/images/I/91zBlQ1iqoL._SX150_.jpg","Description": "The Dark Knight reunites Christian Bale with director Christopher Nolan and takes Batman across the world in his quest to fight a growing criminal threat known as The Joker  ",
+                    "Ticket price": "9$","Start date": "14:00","End date": "17:00","Tags": ["#thedarknight"]}
   ]
 }
- 
- 
+
+
 

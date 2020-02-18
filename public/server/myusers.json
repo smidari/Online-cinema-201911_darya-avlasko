@@ -1,0 +1,25 @@
+{
+  "users": [{
+    "#" : 0,
+    "First name": "Daria",
+    "Last name": "Smirnova",
+    "Email":"admin",
+    "Password": "admin",
+    "isAdmin": true
+  }, {
+    "#": 1,
+    "First name": "Mike",
+    "Last name": "Ivanov",
+    "Email": "user",
+    "Password": "123",
+    "isAdmin": false
+  }, {
+    "#": 2,
+    "First name": "Anna",
+    "Last name": "Petrova",
+    "Email": 12,
+    "Password": "342",
+    "isAdmin": false
+  }]
+}
+

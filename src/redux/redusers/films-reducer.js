@@ -43,12 +43,12 @@ const filmsReducer = (state = initialState, action) => {
       newState.films = newFilms;
       return newState;
     }
-    // case DELETE_FILM: {
-    //   const newFilms = state.films.filter((item) => item.id !== action.payload);
-    //   const newState = { ...state };
-    //   newState.films = newFilms;
-    //   return newState;
-    // }
+    case DELETE_FILM: {
+      const newFilms = state.films.filter((item) => item.Id !== action.payload);
+      const newState = { ...state };
+      newState.films = newFilms;
+      return newState;
+    }
     case RESERVE_FILM: {
       const newState = { ...state };
       const films = [...state.films];

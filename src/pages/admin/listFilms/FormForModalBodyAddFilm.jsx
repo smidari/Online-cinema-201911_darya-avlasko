@@ -9,7 +9,7 @@ const FormForModalBodyAddFilm = ({updateFormData}) => (
         <Col sm={2}><Form.Label>Title</Form.Label></Col>
         <Col sm={10}>
           <Form.Control
-            name="title"
+            name="Title"
             onChange={(e) => updateFormData(e)}
           />
         </Col>
@@ -24,7 +24,7 @@ const FormForModalBodyAddFilm = ({updateFormData}) => (
         </Col>
         <Col sm={10}>
           <Form.Control
-            name="description"
+            name="Description"
             onChange={(e) => updateFormData(e)}
             as="textarea"
             rows="3"
@@ -38,7 +38,7 @@ const FormForModalBodyAddFilm = ({updateFormData}) => (
         <Col sm={2}><Form.Label>Price</Form.Label></Col>
         <Col sm={10}>
           <Form.Control
-            name="price"
+            name="Ticket price"
             onChange={(e) => updateFormData(e)}
           />
         </Col>
@@ -53,7 +53,7 @@ const FormForModalBodyAddFilm = ({updateFormData}) => (
         </Col>
         <Col sm={3}>
           <Form.Control
-            name="start"
+            name="Start date"
             onChange={(e) => updateFormData(e)}
           />
         </Col>
@@ -67,7 +67,7 @@ const FormForModalBodyAddFilm = ({updateFormData}) => (
         </Col>
         <Col sm={3}>
           <Form.Control
-            name="end"
+            name="End date"
             onChange={(e) => updateFormData(e)}
           />
         </Col>
@@ -79,7 +79,7 @@ const FormForModalBodyAddFilm = ({updateFormData}) => (
         <Col sm={2}><Form.Label>Tags</Form.Label></Col>
         <Col sm={10}>
           <Form.Control
-            name="tags"
+            name="Tags"
             onChange={(e) => updateFormData(e)}
           />
         </Col>

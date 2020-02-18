@@ -34,10 +34,12 @@ const usersReducer = (state = initialState, action) => {
       return { ...state, users: [...action.payload] };
     }
     case VEREFICATION_USER: {
+      console.log( action.payload);
+      console.log( state.users );
       const newState = { ...state };
       const user = state.users.find(
-        (item) => item.email === action.payload.email
-                    && item.password === action.payload.password,
+        (item) => item.email === action.payload.Email
+                    && item.password === action.payload.Password,
       );
       if (!user) {
         alert('There was a problem. We cannot find this account!');

@@ -28,7 +28,7 @@ export const logout = createAction('LOG_OUT');
 export const getUsers = () => (dispatch) => {
   dispatch(toggleIsFetching(true));
   setTimeout(() => {
-    fetch('http://localhost:3000/server/users.json')
+    fetch('http://localhost:3000/server/myusers.json')
       .then((response) => response.json())
       .then(
         (data) => {
