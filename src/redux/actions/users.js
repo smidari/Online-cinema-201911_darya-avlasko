@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import {createAction, createActions} from 'redux-actions';
 import {
   DELETE_USER, SET_USERS, TOGGLE_IS_FETCHING, VEREFICATION_USER,
 } from '../const';
@@ -38,3 +38,14 @@ export const getUsers = () => (dispatch) => {
       );
   }, 1000);
 };
+
+
+// export const { setUsers, toggleIsFetching, verificationUser,
+//   deleteUser, logout } = createActions({
+//   SET_USERS: users => users,
+//   TOGGLE_IS_FETCHING: isFetching => isFetching,
+//   VEREFICATION_USER: user => user,
+//   DELETE_USER: userId => userId,
+//   RESERVE_FILM: id => id,
+//   REMOVE_RESERVE_FILM: id => id
+// });

@@ -1,16 +1,13 @@
-import {
-  ADD_FILM, DELETE_FILM, REMOVE_RESERVE_FILM, RESERVE_FILM, SET_FILMS, TOGGLE_IS_FETCHING_FILMS,
-} from '../const';
-import {createAction} from "redux-actions";
+import {createAction, createActions} from "redux-actions";
 
-export const setFilms = (films) => ({
-  type: SET_FILMS,
-  payload: films,
-});
-
-export const toggleIsFetchingFilms = (isFetching) => ({
-  type: TOGGLE_IS_FETCHING_FILMS,
-  payload: isFetching,
+export const { setFilms, toggleIsFetchingFilms, addFilm,
+  deleteFilm, reserveFilm, removeReserveFilm } = createActions({
+  SET_FILMS: films => films,
+  TOGGLE_IS_FETCHING_FILMS: isFetching => isFetching,
+  ADD_FILM: newFilm => newFilm,
+  DELETE_FILM: id => id,
+  RESERVE_FILM: id => id,
+  REMOVE_RESERVE_FILM: id => id
 });
 
 export const getFilms = () => (dispatch) => {
@@ -27,23 +24,8 @@ export const getFilms = () => (dispatch) => {
   }, 1000);
 };
 
-export const addFilm = (newFilm) => ({
-  type: ADD_FILM,
-  payload: newFilm,
-});
-export const deleteFilm = createAction("DeL_FILM", id => id);
-
-// export const deleteFilm = (id) => ({
-//   type: DELETE_FILM,
-//   payload: id,
+// export const addFilm = (newFilm) => ({
+//   type: ADD_FILM,
+//   payload: newFilm,
 // });
 
-export const reserveFilm = (id) => ({
-  type: RESERVE_FILM,
-  payload: id,
-});
-
-export const removeReserveFilm = (id) => ({
-  type: REMOVE_RESERVE_FILM,
-  payload: id,
-});

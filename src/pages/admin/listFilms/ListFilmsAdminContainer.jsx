@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 import ListFilmsAdmin from "./ListFilmsAdmin";
-import {addFilm, deleteFilm, getFilms} from "../../../redux/actions/films";
-
+import {addFilm, deleteFilm, getFilms } from "../../../redux/actions/films";
 
 const mapStateToProps = (state) => ({
-  thdata: state.films.tableFilms.thFilmsData,
   films: state.films.films,
-  stateModal: state.adminPage.modalAddFilm.stateModal,
+  stateModal: state.films.stateModal,
   isFetching: state.films.isFetching,
 });
 

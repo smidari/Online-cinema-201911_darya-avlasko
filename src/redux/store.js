@@ -2,16 +2,12 @@ import {
   applyMiddleware, combineReducers, compose, createStore,
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import adminPageReducer from './redusers/admin-page-reduser';
-import userPageReducer from './redusers/user-page-reduser';
-import usersReducer from './redusers/users-reduser';
 import filmsReducer from './redusers/films-reducer';
+import usersReducer from "./redusers/users-reduser";
 
 const reducers = combineReducers({
-  adminPage: adminPageReducer,
   users: usersReducer,
   films: filmsReducer,
-  userPage: userPageReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

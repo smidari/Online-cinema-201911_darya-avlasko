@@ -4,11 +4,11 @@ import { Table, Button } from 'react-bootstrap';
 class MyTable extends React.Component {
 
   render() {
-    const {columns, rows, func} = this.props;
-
+    const {columns, rows, func } = this.props;
+    
     const tableHeaders = (<thead><tr>
       {columns.map(column => {
-        return <th>{column}</th>
+        return <th >{column}</th>
       })}
     </tr></thead>);
 
@@ -17,13 +17,19 @@ class MyTable extends React.Component {
           <tr>
             {columns.map(function(columns) {
               if(columns === "Picture"){
-                return <td><img src={row[columns]} alt={'image'} /></td>
+                return <td><img  src={row[columns]} alt={'image'} /></td>
               }
-              // else if (columns === "Remove films"){
-              //    return <td><Button variant="outline-danger" onClick={() => func(columns.Id)}>remove</Button></td>
-              //   }
+              else if (columns === "Remove film"){
+                  return <td><Button variant="outline-danger" onClick={() => func(row.Id)}>remove</Button></td>
+              } else if(columns === "Remove user"){
+                  return <td><Button variant="outline-danger" onClick={() => func(row.Id)}>remove</Button></td>
+              }else if(columns === "Reserve film"){
+                  return <td><Button variant="outline-danger" onClick={() => func(row)}>reserve</Button></td>
+              } else if (columns === "Remove reserve film"){
+                  return <td><Button variant="outline-danger" onClick={() => func(row.Id)}>remove</Button></td>
+              }
               else {
-                  return <td>{row[columns]}</td>
+                  return <td key={row.columns}>{row[columns]}</td>
               }})}
           </tr>); });
 

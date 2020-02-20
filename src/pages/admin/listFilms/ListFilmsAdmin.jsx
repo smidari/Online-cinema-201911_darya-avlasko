@@ -4,9 +4,9 @@ import Preloader from '../../../components/preloader/Preolader';
 import MyModal from '../../../components/modal/MyModal';
 import FormForModalBodyAddFilm from './FormForModalBodyAddFilm';
 import MyTable from "../../../components/mytable/MyTable";
-import {deleteFilm} from "../../../redux/actions/films";
 
-const columns = ['Id', "Title", "Picture", "Description", "Ticket price", "Start date", "End date", "Tags", "Remove films"];
+
+const columns = ['Id', "Title", "Picture", "Description", "Ticket price", "Start date", "End date", "Tags", "Remove film"];
 
 class ListFilmsAdmin extends React.Component {
   componentDidMount() {
@@ -27,7 +27,7 @@ class ListFilmsAdmin extends React.Component {
           confirmationFunc={this.props.addFilm}
         />
         {this.props.isFetching ? <Preloader /> : (
-            <MyTable columns={columns} rows={this.props.films} func={deleteFilm} />
+            <MyTable columns={columns} rows={this.props.films} func={this.props.deleteFilm} />
 )}
       </>
     );
@@ -35,20 +35,20 @@ class ListFilmsAdmin extends React.Component {
 }
 
 
-ListFilmsAdmin.propTypes = {
-  deleteFilm: PropTypes.func,
-  addFilm: PropTypes.func,
-  films: PropTypes.arrayOf,
-  thdata: PropTypes.arrayOf,
-  stateModal: PropTypes.objectOf,
-};
-ListFilmsAdmin.defaultProps = {
-  deleteFilm: () => {},
-  addFilm: () => {},
-  films: [],
-  thdata: [],
-  stateModal: {},
-};
+// ListFilmsAdmin.propTypes = {
+//   deleteFilm: PropTypes.func,
+//   addFilm: PropTypes.func,
+//   films: PropTypes.arrayOf,
+//   thdata: PropTypes.arrayOf,
+//   stateModal: PropTypes.objectOf,
+// };
+// ListFilmsAdmin.defaultProps = {
+//   deleteFilm: () => {},
+//   addFilm: () => {},
+//   films: [],
+//   thdata: [],
+//   stateModal: {},
+// };
 
 export default ListFilmsAdmin;
 

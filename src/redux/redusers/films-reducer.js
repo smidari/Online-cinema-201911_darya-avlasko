@@ -1,7 +1,5 @@
-import {
-  ADD_FILM, DELETE_FILM, REMOVE_RESERVE_FILM, RESERVE_FILM, SET_FILMS, TOGGLE_IS_FETCHING_FILMS,
-} from '../const';
-import { actionTypes } from 'redux-resource';
+import { handleActions } from "redux-actions";
+import {addFilm, deleteFilm, removeReserveFilm, reserveFilm, setFilms, toggleIsFetchingFilms} from "../actions/films";
 
 const initialState = {
   tableFilms: {
@@ -16,57 +14,41 @@ const initialState = {
       { th: 'Tags', scope: 'col' },
     ],
   },
+  stateModal: {
+    value: '',
+    title: '',
+    description: '',
+    price: '',
+    start: '',
+    end: '',
+    tags: '',
+    remove: 'remove',
+  },
   films: [],
   reservationFilms: [],
   isFetching: false,
 };
-
-const filmsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case TOGGLE_IS_FETCHING_FILMS: {
-      return { ...state, isFetching: action.payload };
-    }
-    case SET_FILMS: {
-      return { ...state, films: [...action.payload] };
-    }
-    case ADD_FILM: {
-      const newState = { ...state };
-      const films = [...state.films];
-      films.push(action.payload);
-      newState.films = films;
-      return newState;
-    }
-    case actionTypes.DEL_FILM: {
-      console.log('sda')
-      const newFilms = state.films.filter((item) => item.id !== action.payload);
-      const newState = { ...state };
-      newState.films = newFilms;
-      return newState;
-    }
-    case DELETE_FILM: {
-      const newFilms = state.films.filter((item) => item.Id !== action.payload);
-      const newState = { ...state };
-      newState.films = newFilms;
-      return newState;
-    }
-    case RESERVE_FILM: {
-      const newState = { ...state };
-      const films = [...state.films];
-      const reserFilm = [...state.reservationFilms];
-      const film = films.find((item) => item.id === action.payload);
-      reserFilm.push(film);
-      newState.reservationFilms = reserFilm;
-      return newState;
-    }
-    case REMOVE_RESERVE_FILM: {
-      const newState = { ...state };
-      const trfilms = [...state.reservationFilms];
-      newState.reservationFilms = trfilms.filter((item) => item.id !== action.payload);
-      return newState;
-    }
-    default:
-      return state;
-  }
-};
+const filmsReducer = handleActions({
+  [setFilms]: (state, action) =>({ ...state, films: action.payload }),
+  [toggleIsFetchingFilms]: (state, action) => ({ ...state, isFetching: action.payload }),
+  [addFilm]:(state, action) =>([...state.films.push(action.payload)]),
+  [deleteFilm]: (state, action) =>({ ...state, films: state.films.filter((item) => item.Id !== action.payload)}),
+  [reserveFilm]: (state, action) => ({ ...state, reservationFilms: action.payload }),
+  [removeReserveFilm]: (state, action) =>({ ...state, reservationFilms: state.reservationFilms.filter((item) => item.Id !== action.payload)})
+}, initialState);
+//
+// const filmsReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case ADD_FILM: {
+//       const newState = { ...state };
+//       const films = [...state.films];
+//       films.push(action.payload);
+//       newState.films = films;
+//       return newState;
+//     }
+//     default:
+//       return state;
+//   }
+// };
 
 export default filmsReducer;
