@@ -1,33 +1,35 @@
-import React from 'react';
-import { Col, Form } from 'react-bootstrap';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Col, Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
-const FormForModalSignIn = ({updateFormData}) => (
+const FormForModalSignIn = ({ updateFormData }) => (
   <Form>
     <Form.Group>
       <Form.Row>
-        <Col sm={2}> 
-          {' '}
+        <Col sm={2}>
+          {" "}
           <Form.Label>Email</Form.Label>
         </Col>
         <Col sm={10}>
           <Form.Control
             placeholder="Enter email"
             name="email"
-            onChange={(e) => updateFormData(e)}
+            onChange={e => updateFormData(e)}
           />
         </Col>
       </Form.Row>
     </Form.Group>
     <Form.Group>
       <Form.Row>
-        <Col sm={2}><Form.Label>Password</Form.Label></Col>
+        <Col sm={2}>
+          <Form.Label>Password</Form.Label>
+        </Col>
         <Col sm={10}>
           <Form.Control
             type="password"
             placeholder="Password"
             name="password"
-            onChange={(e) => updateFormData(e)}
+            onChange={e => updateFormData(e)}
           />
         </Col>
       </Form.Row>
@@ -36,11 +38,10 @@ const FormForModalSignIn = ({updateFormData}) => (
 );
 
 FormForModalSignIn.propTypes = {
-  updateFormData: PropTypes.string
+  updateFormData: PropTypes.func
 };
 FormForModalSignIn.defaultProps = {
-  updateFormData: '',
+  updateFormData: () => {}
 };
-
 
 export default FormForModalSignIn;

@@ -1,15 +1,17 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Button } from "react-bootstrap";
+import PropTypes from "prop-types";
 
-const MyAccount = (props) => (
-  <Button variant="danger" onClick={() => props.deleteMyAccount()}>Delete account</Button>
+const MyAccount = props => (
+  <Button variant="danger" onClick={() => props.deleteMyAccount()}>
+    Delete account
+  </Button>
 );
 
 MyAccount.propTypes = {
-  deleteMyAccount: PropTypes.func,
+  deleteMyAccount: PropTypes.func
 };
 MyAccount.defaultProps = {
-  deleteMyAccount: () => {},
-}
+  deleteMyAccount: () => {}
+};
 export default MyAccount;

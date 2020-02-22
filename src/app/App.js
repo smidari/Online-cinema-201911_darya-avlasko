@@ -4,16 +4,16 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Switch } from "react-bootstrap";
 import { Provider } from "react-redux";
 import ListResrvFilmContainer from "../pages/user/reservation/ListReservFilmContainer";
-import HeaderContainer from "../components/header/HeaderContainer";
 import { ModalProvider } from "../components/modal/ModalContext";
 import ModalRoot from "../components/modal/ModaRoot";
 import store from "../redux/store";
 import PrivateRoute from "./PrivateRoute";
-import ListDeleteUsersContainer from "../pages/admin/list-delete-user/ListDeleteUserContainer";
+import ListDeleteUsersContainer from "../pages/admin/list-delete-users/ListDeleteUserContainer";
 import Home from "../pages/home/Home";
-import ListFilmsAdminContainer from "../pages/admin/listFilms/ListFilmsAdminContainer";
-import UserListContainer from "../pages/admin/users/UsersListContainer";
-import FilmsListUserContainer from "../pages/user/films/FilmsListUserContainer";
+import FilmsForAdminContainer from "../pages/admin/films/FilmsForAdminContainer";
+import UserListContainer from "../pages/admin/users/UsersContainer";
+import FilmsForUserContainer from "../pages/user/films/FilmsForUserContainer";
+import HeaderContainer from "../components/header/HeaderContainer";
 
 const App = () => (
   <BrowserRouter>
@@ -25,10 +25,16 @@ const App = () => (
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/admin/users" component={UserListContainer} />
-            <Route path="/admin/films" component={ListFilmsAdminContainer} />
-            <PrivateRoute path="/admin/deleteuser" component={ListDeleteUsersContainer} />
-            <Route path="/user/films" component={FilmsListUserContainer} />
-            <PrivateRoute path="/user/reservation" component={ListResrvFilmContainer} />
+            <Route path="/admin/films" component={FilmsForAdminContainer} />
+            <PrivateRoute
+              path="/admin/deleteuser"
+              component={ListDeleteUsersContainer}
+            />
+            <Route path="/user/films" component={FilmsForUserContainer} />
+            <Route
+              path="/user/reservation"
+              component={ListResrvFilmContainer}
+            />
           </Switch>
         </>
       </Provider>

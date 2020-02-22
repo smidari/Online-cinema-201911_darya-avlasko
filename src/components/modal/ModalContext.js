@@ -1,44 +1,58 @@
-import React, { Component, createContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, createContext } from "react";
+import PropTypes from "prop-types";
 
 const ModalContext = createContext({
   component: null,
   props: {},
   showModal: () => {},
-  hideModal: () => {},
+  hideModal: () => {}
 });
 
 export class ModalProvider extends Component {
-    static propTypes = {
-      children: PropTypes.node.isRequired,
-    };
+  // eslint-disable-next-line react/static-property-placement
+  static propTypes = {
+    children: PropTypes.node.isRequired
+  };
 
-    showModal = (component, props = {}) => {
-      this.setState({
-        component,
-        props,
-      });
-    };
+  // eslint-disable-next-line react/sort-comp
+  showModal = (component, props = {}) => {
+    this.setState({
+      // eslint-disable-next-line react/no-unused-state
+      component,
+      // eslint-disable-next-line react/no-unused-state
+      props
+    });
+  };
 
-    hideModal = () => this.setState({
+  hideModal = () =>
+    this.setState({
+      // eslint-disable-next-line react/no-unused-state
       component: null,
-      props: {},
+      // eslint-disable-next-line react/no-unused-state
+      props: {}
     });
 
-    state = {
-      component: null,
-      props: {},
-      showModal: this.showModal,
-      hideModal: this.hideModal,
-    };
+  // eslint-disable-next-line react/state-in-constructor
+  state = {
+    // eslint-disable-next-line react/no-unused-state
+    component: null,
+    // eslint-disable-next-line react/no-unused-state
+    props: {},
+    // eslint-disable-next-line react/no-unused-state
+    showModal: this.showModal,
+    // eslint-disable-next-line react/no-unused-state
+    hideModal: this.hideModal
+  };
 
-    render() {
-      return (
-        <ModalContext.Provider value={this.state}>
-          {this.props.children}
-        </ModalContext.Provider>
-      );
-    }
+  render() {
+    const { children } = this.props;
+    return (
+      // eslint-disable-next-line react/jsx-filename-extension
+      <ModalContext.Provider value={this.state}>
+        {children}
+      </ModalContext.Provider>
+    );
+  }
 }
 
 export const ModalConsumer = ModalContext.Consumer;

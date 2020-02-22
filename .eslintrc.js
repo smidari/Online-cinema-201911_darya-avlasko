@@ -15,6 +15,8 @@ module.exports = {
     },
     rules: {
         "linebreak-style": "off",
-        "func-names": "off"
+        "func-names": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", "jsx"]}]
     }
 };

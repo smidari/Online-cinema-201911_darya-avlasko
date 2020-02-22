@@ -12,33 +12,33 @@ const columns = [
   "Start date",
   "End date",
   "Tags",
-  "Remove reserve film"
+  "Reserve film"
 ];
 
-const ListReservFilm = ({
-  isFetching,
-  reservationFilms,
-  removeReserveFilm
-}) => {
-  return (
-    <>
-      {isFetching ? (
-        <Preloader />
-      ) : (
-        <MyTable
-          columns={columns}
-          rows={reservationFilms}
-          func={removeReserveFilm}
-        />
-      )}
-    </>
-  );
-};
+class FilmsForUser extends React.Component {
+  componentDidMount() {
+    const { getFilms } = this.props;
+    getFilms();
+  }
 
-ListReservFilm.propTypes = {
+  render() {
+    const { isFetching, films, reserveFilm } = this.props;
+    return (
+      <>
+        {isFetching ? (
+          <Preloader />
+        ) : (
+          <MyTable columns={columns} rows={films} func={reserveFilm} />
+        )}
+      </>
+    );
+  }
+}
+
+FilmsForUser.propTypes = {
+  getFilms: PropTypes.func,
   isFetching: PropTypes.bool,
-  removeReserveFilm: PropTypes.func,
-  reservationFilms: PropTypes.arrayOf(
+  films: PropTypes.arrayOf(
     PropTypes.shape({
       Id: PropTypes.string,
       Title: PropTypes.string,
@@ -49,13 +49,14 @@ ListReservFilm.propTypes = {
       "End date": PropTypes.node,
       Tags: PropTypes.arrayOf(PropTypes.string)
     })
-  )
+  ),
+  reserveFilm: PropTypes.func
+};
+FilmsForUser.defaultProps = {
+  getFilms: () => {},
+  isFetching: false,
+  films: [],
+  reserveFilm: () => {}
 };
 
-ListReservFilm.defaultProps = {
-  removeReserveFilm: () => {},
-  reservationFilms: [],
-  isFetching: false
-};
-
-export default ListReservFilm;
+export default FilmsForUser;
