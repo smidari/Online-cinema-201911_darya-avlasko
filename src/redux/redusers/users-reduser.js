@@ -1,17 +1,18 @@
 import { handleActions } from "redux-actions";
 import {
+  changeDataUser,
+  deleteAccount,
   deleteUser,
   logout,
   setUsers,
-  toggleIsFetching,
-  verificationUser
+  toggleIsFetching
+  // verificationUser
 } from "../actions/users";
 
 const initialState = {
   users: [],
   userVerified: {},
   usersForDelete: [],
-  removalRequestsFromUsers: [],
   admin: false,
   user: false,
   isFetching: false,
@@ -30,20 +31,25 @@ const usersReducer = handleActions(
       ...state,
       isFetching: action.payload
     }),
-    [verificationUser]: (state, action) => ({
-      ...state,
-      userVerified: state.users.find(
-        item =>
-          item.Email === action.payload.email &&
-          item.Password === action.payload.password
-      )
-    }),
+    // [verificationUser]: (state, action) => ({
+    //   ...state,
+    //   userVerified: state.users.find(
+    //     item =>
+    //       item.Email === action.payload.email &&
+    //       item.Password === action.payload.password
+    //   )
+    // }),
     // state.userVerified.isAdmin ? (state.admin = true) : (state.user = true)
     [deleteUser]: (state, action) => ({
       ...state,
       users: state.users.filter(item => item.id !== action.payload)
     }),
-    [logout]: state => ({ ...state, admin: false, user: false })
+    [logout]: state => ({ ...state, admin: false, user: false }),
+    [changeDataUser]: state => ({ ...state }),
+    [deleteAccount]: (state, action) => ({
+      ...state,
+      usersForDelete: [...state.usersForDelete, action.payload]
+    })
   },
   initialState
 );

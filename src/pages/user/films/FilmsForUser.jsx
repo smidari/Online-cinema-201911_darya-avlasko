@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Preloader from "../../../components/preloader/Preolader";
-import MyTable from "../../../components/mytable/MyTable";
+import Table from "../../../components/table/MyTable";
 
 const columns = [
   "#",
@@ -28,7 +28,7 @@ class FilmsForUser extends React.Component {
         {isFetching ? (
           <Preloader />
         ) : (
-          <MyTable columns={columns} rows={films} func={reserveFilm} />
+          <Table columns={columns} rows={films} func={reserveFilm} />
         )}
       </>
     );

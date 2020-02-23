@@ -1,6 +1,6 @@
 import React from "react";
-import MyCarousel from "./MyCarousel";
-import Footer from "./Footer";
+import MyCarousel from "../../components/carousel/MyCarousel";
+import Footer from "../../components/footer/Footer";
 import "./home.css";
 
 const Home = () => (

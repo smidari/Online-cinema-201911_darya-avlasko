@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Preloader from "../../../components/preloader/Preolader";
 import MyModal from "../../../components/modal/MyModal";
 import FormForModalBodyAddFilm from "../../../components/forms/FormForModalBodyAddFilm";
-import MyTable from "../../../components/mytable/MyTable";
+import Table from "../../../components/table/MyTable";
 
 const columns = [
   "Id",
@@ -40,7 +40,7 @@ class FilmsForAdmin extends React.Component {
         {isFetching ? (
           <Preloader />
         ) : (
-          <MyTable columns={columns} rows={films} func={deleteFilm} />
+          <Table columns={columns} rows={films} func={deleteFilm} />
         )}
       </>
     );

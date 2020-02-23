@@ -1,14 +1,14 @@
 import { connect } from "react-redux";
 import { removeReserveFilm } from "../../../redux/actions/films";
-import ListDeleteUsers from "./ListDeleteUsers";
+import UserRequestsForDelete from "./UserRequestsForDelete";
 
 const mapStateToProps = state => ({
   trdata: state.users.removalRequestsFromUsers,
   usersForDelete: state.users.usersForDelete
 });
 
-const ListDeleteUsersContainer = connect(mapStateToProps, {
+const UserRequestsForDeleteContainer = connect(mapStateToProps, {
   removeReserveFilm
-})(ListDeleteUsers);
+})(UserRequestsForDelete);
 
-export default ListDeleteUsersContainer;
+export default UserRequestsForDeleteContainer;

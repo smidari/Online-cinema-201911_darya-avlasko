@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Preloader from "../../../components/preloader/Preolader";
-import MyTable from "../../../components/mytable/MyTable";
+import Table from "../../../components/table/MyTable";
 
 const columns = [
   "#",
@@ -15,17 +15,13 @@ const columns = [
   "Remove reserve film"
 ];
 
-const ListReservFilm = ({
-  isFetching,
-  reservationFilms,
-  removeReserveFilm
-}) => {
+const FilmsBooked = ({ isFetching, reservationFilms, removeReserveFilm }) => {
   return (
     <>
       {isFetching ? (
         <Preloader />
       ) : (
-        <MyTable
+        <Table
           columns={columns}
           rows={reservationFilms}
           func={removeReserveFilm}
@@ -35,7 +31,7 @@ const ListReservFilm = ({
   );
 };
 
-ListReservFilm.propTypes = {
+FilmsBooked.propTypes = {
   isFetching: PropTypes.bool,
   removeReserveFilm: PropTypes.func,
   reservationFilms: PropTypes.arrayOf(
@@ -52,10 +48,10 @@ ListReservFilm.propTypes = {
   )
 };
 
-ListReservFilm.defaultProps = {
+FilmsBooked.defaultProps = {
   removeReserveFilm: () => {},
   reservationFilms: [],
   isFetching: false
 };
 
-export default ListReservFilm;
+export default FilmsBooked;

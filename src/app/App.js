@@ -3,17 +3,18 @@ import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Switch } from "react-bootstrap";
 import { Provider } from "react-redux";
-import ListResrvFilmContainer from "../pages/user/reservation/ListReservFilmContainer";
 import { ModalProvider } from "../components/modal/ModalContext";
 import ModalRoot from "../components/modal/ModaRoot";
 import store from "../redux/store";
 import PrivateRoute from "./PrivateRoute";
-import ListDeleteUsersContainer from "../pages/admin/list-delete-users/ListDeleteUserContainer";
 import Home from "../pages/home/Home";
 import FilmsForAdminContainer from "../pages/admin/films/FilmsForAdminContainer";
 import UserListContainer from "../pages/admin/users/UsersContainer";
 import FilmsForUserContainer from "../pages/user/films/FilmsForUserContainer";
 import HeaderContainer from "../components/header/HeaderContainer";
+import FilmsBookedContainer from "../pages/user/films-booked/FilmsBookedContainer";
+import UserRequestsForDeleteContainer from "../pages/admin/user-requests-for-delete/UserRequestsForDeleteContainer";
+import MyAccount from "../pages/user/my-account/MyAccount";
 
 const App = () => (
   <BrowserRouter>
@@ -28,13 +29,11 @@ const App = () => (
             <Route path="/admin/films" component={FilmsForAdminContainer} />
             <PrivateRoute
               path="/admin/deleteuser"
-              component={ListDeleteUsersContainer}
+              component={UserRequestsForDeleteContainer}
             />
+            <Route path="/user/account" component={MyAccount} />
             <Route path="/user/films" component={FilmsForUserContainer} />
-            <Route
-              path="/user/reservation"
-              component={ListResrvFilmContainer}
-            />
+            <Route path="/user/reservation" component={FilmsBookedContainer} />
           </Switch>
         </>
       </Provider>

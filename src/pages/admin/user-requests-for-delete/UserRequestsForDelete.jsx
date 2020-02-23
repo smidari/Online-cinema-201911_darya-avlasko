@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MyTable from "../../../components/mytable/MyTable";
+import Table from "../../../components/table/MyTable";
 
 const columns = ["#", "First name", "Last name", "Email", "Remove user"];
 
-const ListDeleteUsers = ({ usersForDelete }) => {
+const UserRequestsForDelete = ({ usersForDelete }) => {
   return (
     <div>
-      <MyTable columns={columns} rows={usersForDelete} />
+      <Table columns={columns} rows={usersForDelete} />
     </div>
   );
 };
 
-ListDeleteUsers.propTypes = {
+UserRequestsForDelete.propTypes = {
   usersForDelete: PropTypes.arrayOf(
     PropTypes.shape({
       "#": PropTypes.number,
@@ -22,8 +22,8 @@ ListDeleteUsers.propTypes = {
     })
   )
 };
-ListDeleteUsers.defaultProps = {
+UserRequestsForDelete.defaultProps = {
   usersForDelete: []
 };
 
-export default ListDeleteUsers;
+export default UserRequestsForDelete;

@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
-import ListReservFilm from "./ListReservFilm";
+import FilmsBooked from "./FilmsBooked";
 import { removeReserveFilm } from "../../../redux/actions/films";
 
 const mapStateToProps = state => ({
   reservationFilms: state.films.reservationFilms
 });
 
-const ListResrvFilmContainer = connect(mapStateToProps, { removeReserveFilm })(
-  ListReservFilm
+const FilmsBookedContainer = connect(mapStateToProps, { removeReserveFilm })(
+  FilmsBooked
 );
 
-export default ListResrvFilmContainer;
+export default FilmsBookedContainer;

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Preloader from "../../../components/preloader/Preolader";
-import MyTable from "../../../components/mytable/MyTable";
+import Table from "../../../components/table/MyTable";
 
 const columns = ["id", "First name", "Last name", "Email", "Remove user"];
 
@@ -18,7 +18,7 @@ class Users extends React.Component {
         {isFetching ? (
           <Preloader />
         ) : (
-          <MyTable columns={columns} rows={users} func={deleteUser} />
+          <Table columns={columns} rows={users} func={deleteUser} />
         )}
       </>
     );

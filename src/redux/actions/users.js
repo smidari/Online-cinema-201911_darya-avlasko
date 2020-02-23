@@ -5,14 +5,18 @@ export const {
   toggleIsFetching,
   verificationUser,
   deleteUser,
-  logout
+  logout,
+  changeDataUser,
+  deleteAccount
 } = createActions({
   SET_USERS: users => users,
   TOGGLE_IS_FETCHING: isFetching => isFetching,
   VEREFICATION_USER: user => user,
   DELETE_USER: id => id,
   RESERVE_FILM: id => id,
-  REMOVE_RESERVE_FILM: id => id
+  REMOVE_RESERVE_FILM: id => id,
+  CHANGE_DATA_USER: data => data,
+  DELETE_ACCOUNT: user => user
 });
 
 export const getUsers = () => dispatch => {
