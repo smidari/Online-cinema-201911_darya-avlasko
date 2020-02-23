@@ -1,20 +1,20 @@
 {
   "users": [{
-    "#" : 0,
+    "id" : "1",
     "First name": "Daria",
     "Last name": "Smirnova",
     "Email":"admin",
     "Password": "admin",
     "isAdmin": true
   }, {
-    "#": 1,
+    "id": "2",
     "First name": "Mike",
     "Last name": "Ivanov",
     "Email": "user",
     "Password": "123",
     "isAdmin": false
   }, {
-    "#": 2,
+    "id": "3",
     "First name": "Anna",
     "Last name": "Petrova",
     "Email": 12,

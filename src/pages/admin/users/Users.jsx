@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Preloader from "../../../components/preloader/Preolader";
 import MyTable from "../../../components/mytable/MyTable";
 
-const columns = ["#", "First name", "Last name", "Email", "Remove user"];
+const columns = ["id", "First name", "Last name", "Email", "Remove user"];
 
 class Users extends React.Component {
   componentDidMount() {

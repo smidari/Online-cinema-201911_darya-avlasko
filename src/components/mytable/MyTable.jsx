@@ -42,7 +42,7 @@ const MyTable = ({ columns, rows, func }) => {
                       <td>
                         <Button
                           variant="outline-danger"
-                          onClick={() => func(row.Id)}
+                          onClick={() => func(row.id)}
                         >
                           remove
                         </Button>

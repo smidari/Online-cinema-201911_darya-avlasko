@@ -3,18 +3,13 @@ import {
   deleteUser,
   logout,
   setUsers,
-  toggleIsFetching
+  toggleIsFetching,
+  verificationUser
 } from "../actions/users";
-// import {
-//   DELETE_USER,
-//   LOG_OUT,
-//   SET_USERS,
-//   TOGGLE_IS_FETCHING,
-//   VEREFICATION_USER
-// } from "../const";
 
 const initialState = {
   users: [],
+  userVerified: {},
   usersForDelete: [],
   removalRequestsFromUsers: [],
   admin: false,
@@ -28,14 +23,33 @@ const initialState = {
   }
 };
 
-// const usersReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case TOGGLE_IS_FETCHING: {
-//       return { ...state, isFetching: action.payload };
-//     }
-//     case SET_USERS: {
-//       return { ...state, users: [...action.payload] };
-//     }
+const usersReducer = handleActions(
+  {
+    [setUsers]: (state, action) => ({ ...state, users: action.payload }),
+    [toggleIsFetching]: (state, action) => ({
+      ...state,
+      isFetching: action.payload
+    }),
+    [verificationUser]: (state, action) => ({
+      ...state,
+      userVerified: state.users.find(
+        item =>
+          item.Email === action.payload.email &&
+          item.Password === action.payload.password
+      )
+    }),
+    // state.userVerified.isAdmin ? (state.admin = true) : (state.user = true)
+    [deleteUser]: (state, action) => ({
+      ...state,
+      users: state.users.filter(item => item.id !== action.payload)
+    }),
+    [logout]: state => ({ ...state, admin: false, user: false })
+  },
+  initialState
+);
+
+export default usersReducer;
+
 //     case VEREFICATION_USER: {
 //       const newState = { ...state };
 //       const user = state.users.find(
@@ -50,38 +64,3 @@ const initialState = {
 //       }
 //       return newState;
 //     }
-//     case LOG_OUT: {
-//       const newState = { ...state };
-//       newState.admin = false;
-//       newState.user = false;
-//       return newState;
-//     }
-//     case DELETE_USER: {
-//       return {
-//         ...state,
-//         users: state.users.filter(item => item.Id !== action.payload)
-//       };
-//     }
-//     default:
-//       return state;
-//   }
-// };
-
-const usersReducer = handleActions(
-  {
-    [setUsers]: (state, action) => ({ ...state, users: action.payload }),
-    [toggleIsFetching]: (state, action) => ({
-      ...state,
-      isFetching: action.payload
-    }),
-    // [verificationUser]: (state, action) =>({}),
-    [deleteUser]: (state, action) => ({
-      ...state,
-      films: state.user.filter(item => item.Id !== action.payload)
-    }),
-    [logout]: state => ({ ...state, admin: false, user: false })
-  },
-  initialState
-);
-
-export default usersReducer;

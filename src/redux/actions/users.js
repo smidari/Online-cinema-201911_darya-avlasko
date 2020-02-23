@@ -1,32 +1,4 @@
 import { createActions } from "redux-actions";
-// import {
-//   DELETE_USER,
-//   SET_USERS,
-//   TOGGLE_IS_FETCHING,
-//   VEREFICATION_USER
-// } from "../const";
-
-// export const setUsers = users => ({
-//   type: SET_USERS,
-//   payload: users
-// });
-//
-// export const verificationUser = user => ({
-//   type: VEREFICATION_USER,
-//   payload: user
-// });
-//
-// export const deleteUser = userId => ({
-//   type: DELETE_USER,
-//   payload: userId
-// });
-//
-// export const toggleIsFetching = isFetching => ({
-//   type: TOGGLE_IS_FETCHING,
-//   payload: isFetching
-// });
-//
-// export const logout = createAction("LOG_OUT");
 
 export const {
   setUsers,
@@ -38,7 +10,7 @@ export const {
   SET_USERS: users => users,
   TOGGLE_IS_FETCHING: isFetching => isFetching,
   VEREFICATION_USER: user => user,
-  DELETE_USER: userId => userId,
+  DELETE_USER: id => id,
   RESERVE_FILM: id => id,
   REMOVE_RESERVE_FILM: id => id
 });
@@ -46,7 +18,7 @@ export const {
 export const getUsers = () => dispatch => {
   dispatch(toggleIsFetching(true));
   setTimeout(() => {
-    fetch("http://localhost:3000/server/myusers.json")
+    fetch("http://localhost:3000/server/users.json")
       .then(response => response.json())
       .then(data => {
         dispatch(toggleIsFetching(false));

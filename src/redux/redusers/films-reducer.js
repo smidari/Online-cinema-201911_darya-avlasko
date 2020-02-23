@@ -30,7 +30,10 @@ const filmsReducer = handleActions(
       ...state,
       isFetching: action.payload
     }),
-    [addFilm]: (state, action) => [...state, action.payload],
+    [addFilm]: (state, action) => ({
+      ...state,
+      films: [...state.films, action.payload]
+    }),
     [deleteFilm]: (state, action) => ({
       ...state,
       films: state.films.filter(item => item.Id !== action.payload)
