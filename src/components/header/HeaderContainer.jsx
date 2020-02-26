@@ -2,20 +2,17 @@
 import React from "react";
 import "./hedar.css";
 import { connect } from "react-redux";
-import { getUsers, logout, verificationUser } from "../../redux/actions/users";
+import { getUsers, logout, userVerification } from "../../redux/actions/users";
 import Header from "./Header";
 
-// const HeaderContainer = ({ admin, user, logout, verificationUser, stateModal }) => (
-//
-// );
 const mapStateToProps = state => ({
   stateModal: state.users.modalSignIn.stateModal,
-  admin: state.users.admin,
-  user: state.users.user
+  admin: state.users.userVerified.isAdmin,
+  user: state.users.userVerified.isUser
 });
 const HeaderContainer = connect(mapStateToProps, {
   getUsers,
-  verificationUser,
+  userVerification,
   logout
 })(Header);
 export default HeaderContainer;

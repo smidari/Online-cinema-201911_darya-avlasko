@@ -3,20 +3,19 @@ import { createActions } from "redux-actions";
 export const {
   setUsers,
   toggleIsFetching,
-  verificationUser,
   deleteUser,
-  logout,
   changeDataUser,
-  deleteAccount
+  deleteAccount,
+  userVerification,
+  logout
 } = createActions({
   SET_USERS: users => users,
   TOGGLE_IS_FETCHING: isFetching => isFetching,
-  VEREFICATION_USER: user => user,
   DELETE_USER: id => id,
-  RESERVE_FILM: id => id,
-  REMOVE_RESERVE_FILM: id => id,
   CHANGE_DATA_USER: data => data,
-  DELETE_ACCOUNT: user => user
+  DELETE_ACCOUNT: user => user,
+  USER_VERIFICATION: user => user,
+  LOGOUT: () => {}
 });
 
 export const getUsers = () => dispatch => {

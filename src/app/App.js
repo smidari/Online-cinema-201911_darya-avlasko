@@ -25,15 +25,24 @@ const App = () => (
           <HeaderContainer />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/admin/users" component={UserListContainer} />
-            <Route path="/admin/films" component={FilmsForAdminContainer} />
+            <PrivateRoute path="/admin/users" component={UserListContainer} />
+            <PrivateRoute
+              path="/admin/films"
+              component={FilmsForAdminContainer}
+            />
             <PrivateRoute
               path="/admin/deleteuser"
               component={UserRequestsForDeleteContainer}
             />
-            <Route path="/user/account" component={MyAccount} />
-            <Route path="/user/films" component={FilmsForUserContainer} />
-            <Route path="/user/reservation" component={FilmsBookedContainer} />
+            <PrivateRoute path="/user/account" component={MyAccount} />
+            <PrivateRoute
+              path="/user/films"
+              component={FilmsForUserContainer}
+            />
+            <PrivateRoute
+              path="/user/reservation"
+              component={FilmsBookedContainer}
+            />
           </Switch>
         </>
       </Provider>

@@ -12,7 +12,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { admin, user, logout, verificationUser, stateModal } = this.props;
+    const { stateModal, admin, user, userVerification, logout } = this.props;
     return (
       <>
         <Navbar className="top-menu" bg="dark" variant="dark">
@@ -55,7 +55,7 @@ class Header extends React.Component {
                   nameBtnOpenModal="Sign in"
                   modaltitle="Sign in"
                   nameBtnConfirmation="Sign in"
-                  confirmationFunc={verificationUser}
+                  confirmationFunc={userVerification}
                   bodyModal={FormForModalSignIn}
                   stateModal={stateModal}
                 />
@@ -76,13 +76,12 @@ Header.propTypes = {
   }),
   admin: PropTypes.bool,
   user: PropTypes.bool,
-  verificationUser: PropTypes.func,
+  userVerification: PropTypes.func.isRequired,
   logout: PropTypes.func
 };
 Header.defaultProps = {
   admin: false,
   user: false,
-  verificationUser: () => {},
   logout: () => {},
   stateModal: {
     email: "",

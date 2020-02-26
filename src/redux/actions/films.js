@@ -27,8 +27,3 @@ export const getFilms = () => dispatch => {
       });
   }, 1000);
 };
-
-// export const addFilm = (newFilm) => ({
-//   type: ADD_FILM,
-//   payload: newFilm,
-// });
