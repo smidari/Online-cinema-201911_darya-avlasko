@@ -26,23 +26,14 @@ const App = () => (
           <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/admin/users" component={UserListContainer} />
-            <PrivateRoute
-              path="/admin/films"
-              component={FilmsForAdminContainer}
-            />
-            <PrivateRoute
+            <Route path="/admin/films" component={FilmsForAdminContainer} />
+            <Route
               path="/admin/deleteuser"
               component={UserRequestsForDeleteContainer}
             />
-            <PrivateRoute path="/user/account" component={MyAccount} />
-            <PrivateRoute
-              path="/user/films"
-              component={FilmsForUserContainer}
-            />
-            <PrivateRoute
-              path="/user/reservation"
-              component={FilmsBookedContainer}
-            />
+            <Route path="/user/myaccount" component={MyAccount} />
+            <Route path="/user/films" component={FilmsForUserContainer} />
+            <Route path="/user/reservation" component={FilmsBookedContainer} />
           </Switch>
         </>
       </Provider>

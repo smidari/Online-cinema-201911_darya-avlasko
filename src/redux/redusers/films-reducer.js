@@ -10,14 +10,12 @@ import {
 
 const initialState = {
   stateModal: {
-    value: "",
-    title: "",
-    description: "",
-    price: "",
-    start: "",
-    end: "",
-    tags: "",
-    remove: "remove"
+    Title: "",
+    Description: "",
+    "Ticket price": "",
+    "Start date": "",
+    "End date": "",
+    Tags: ""
   },
   films: [],
   reservationFilms: [],
@@ -30,18 +28,31 @@ const filmsReducer = handleActions(
       ...state,
       isFetching: action.payload
     }),
-    [addFilm]: (state, action) => ({
-      ...state,
-      films: [...state.films, action.payload]
-    }),
-    [deleteFilm]: (state, action) => ({
-      ...state,
-      films: state.films.filter(item => item.Id !== action.payload)
-    }),
-    [reserveFilm]: (state, action) => ({
-      ...state,
-      reservationFilms: action.payload
-    }),
+    [addFilm]: (state, action) => {
+      const newFilms = { ...action.payload };
+      newFilms.Id = state.films.length + 1;
+      return {
+        ...state,
+        films: [...state.films, newFilms]
+      };
+    },
+    [deleteFilm]: (state, action) => {
+      return {
+        ...state,
+        films: state.films.filter(item => item.Id !== action.payload)
+      };
+    },
+    [reserveFilm]: (state, action) => {
+      const newState = { ...state };
+      // eslint-disable-next-line no-unused-expressions
+      state.reservationFilms.find(item => item.Id === action.payload.Id)
+        ? (newState.reservationFilms = [...state.reservationFilms])
+        : (newState.reservationFilms = [
+            ...state.reservationFilms,
+            action.payload
+          ]);
+      return newState;
+    },
     [removeReserveFilm]: (state, action) => ({
       ...state,
       reservationFilms: state.reservationFilms.filter(

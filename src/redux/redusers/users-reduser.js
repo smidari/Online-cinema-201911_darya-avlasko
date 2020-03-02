@@ -42,14 +42,17 @@ const usersReducer = handleActions(
       ...state,
       usersForDelete: [...state.usersForDelete, action.payload]
     }),
-    [userVerification]: (state, action) => ({
-      ...state,
-      userVerified: state.users.find(
+    [userVerification]: (state, action) => {
+      const user = state.users.find(
         item =>
           item.Email === action.payload.email &&
           item.Password === action.payload.password
-      )
-    })
+      );
+      const newState = { ...state };
+      // eslint-disable-next-line no-unused-expressions
+      user ? (newState.userVerified = user) : (newState.userVerified = {});
+      return newState;
+    }
   },
   initialState
 );

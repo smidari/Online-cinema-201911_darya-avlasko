@@ -53,7 +53,7 @@ const MyTable = ({ columns, rows, func }) => {
                     return (
                       <td>
                         <Button
-                          variant="outline-danger"
+                          variant="outline-success"
                           onClick={() => func(row)}
                         >
                           reserve

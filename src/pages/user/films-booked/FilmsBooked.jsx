@@ -4,7 +4,7 @@ import Preloader from "../../../components/preloader/Preolader";
 import Table from "../../../components/table/MyTable";
 
 const columns = [
-  "#",
+  "Id",
   "Title",
   "Picture",
   "Description",

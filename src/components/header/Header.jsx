@@ -12,14 +12,16 @@ class Header extends React.Component {
   }
 
   render() {
-    const { stateModal, admin, user, userVerification, logout } = this.props;
+    const { stateModal, admin, user, userVerification } = this.props;
+    // eslint-disable-next-line react/destructuring-assignment
+    const logout = () => this.props.logout();
     return (
       <>
         <Navbar className="top-menu" bg="dark" variant="dark">
           <Navbar.Brand>Online cinema</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            {admin === true && (
+            {admin && (
               <Nav className="menu-main">
                 <Link className="menu-main-item" to="/admin/films">
                   Films
@@ -32,7 +34,7 @@ class Header extends React.Component {
                 </Link>
               </Nav>
             )}
-            {user === true && (
+            {user && (
               <Nav className="menu-main">
                 <Link className="menu-main-item" to="/user/myaccount">
                   My Account
@@ -46,8 +48,8 @@ class Header extends React.Component {
               </Nav>
             )}
             <Form className="header-btn">
-              {admin || user === true ? (
-                <Button variant="outline-info" onClick={() => logout()}>
+              {admin || user ? (
+                <Button variant="outline-info" onClick={logout}>
                   Log out
                 </Button>
               ) : (

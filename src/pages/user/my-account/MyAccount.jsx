@@ -27,13 +27,19 @@ class MyAccount extends React.Component {
     });
   };
 
+  onChangeFunc = e => this.updateFormData(e);
+
   changeDataUser = state => {
     console.log(state);
   };
 
+  onClickChangeDataUser = () => this.changeDataUser(this.state);
+
   deleteAccount = user => {
     console.log(user.id);
   };
+
+  onClickDeleteAccount = () => this.deleteAccount(testUser);
 
   render() {
     return (
@@ -49,7 +55,7 @@ class MyAccount extends React.Component {
                   name={item}
                   defaultValue={testUser[item]}
                   plaintext
-                  onChange={e => this.updateFormData(e)}
+                  onChange={this.onChangeFunc}
                 />
               </Col>
             </Form.Group>
@@ -57,13 +63,13 @@ class MyAccount extends React.Component {
           <Button
             className="mr-5"
             variant="outline-danger"
-            onClick={() => this.deleteAccount(testUser)}
+            onClick={this.onClickDeleteAccount}
           >
             Delete account
           </Button>
           <Button
             variant="outline-success"
-            onClick={() => this.changeDataUser(this.state)}
+            onClick={this.onClickChangeDataUser}
           >
             Submit
           </Button>
